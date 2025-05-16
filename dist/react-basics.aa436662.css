@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.menuContainer {
+  width: 100%;
+}
+
+.menu {
+  justify-content: flex-end;
+  padding: 15px;
+  display: flex;
+}
+
+ul {
+  gap: 20px;
+}
+
+li {
+  cursor: pointer;
+  font-size: 20px;
+  list-style-type: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+/*# sourceMappingURL=react-basics.aa436662.css.map */
