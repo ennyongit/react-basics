@@ -18569,12 +18569,23 @@ const Body = ()=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "res-container",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {}, void 0, false, {
-                    fileName: "Body.js",
-                    lineNumber: 8,
-                    columnNumber: 17
-                }, undefined)
-            }, void 0, false, {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
+                        resName: "MacDonald's"
+                    }, void 0, false, {
+                        fileName: "Body.js",
+                        lineNumber: 8,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
+                        resName: "KFC"
+                    }, void 0, false, {
+                        fileName: "Body.js",
+                        lineNumber: 9,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "Body.js",
                 lineNumber: 7,
                 columnNumber: 13
@@ -18607,7 +18618,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const RestaurantCard = ()=>{
+const RestaurantCard = (props)=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "res-card",
         children: [
@@ -18622,7 +18633,7 @@ const RestaurantCard = ()=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 className: "title",
-                children: "MacDonald's"
+                children: props.resName
             }, void 0, false, {
                 fileName: "RestaurantCard.js",
                 lineNumber: 8,
@@ -18636,6 +18647,7 @@ const RestaurantCard = ()=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                className: "cuisine",
                 children: "American"
             }, void 0, false, {
                 fileName: "RestaurantCard.js",
