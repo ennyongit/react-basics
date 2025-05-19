@@ -18555,6 +18555,32 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _restaurantCard = require("./RestaurantCard");
 var _restaurantCardDefault = parcelHelpers.interopDefault(_restaurantCard);
+const resObject = [
+    {
+        id: "1",
+        title: "MacDonald's",
+        cuisine: "American Burgers",
+        rating: "5.5",
+        delivery: "39min",
+        imgId: "https://www.foodandwine.com/thmb/8N5jLutuTK4TDzpDkhMfdaHLZxI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/McDonalds-Hacks-Menu-FT-1-BLOG0122-4ac9d62f6c9143be8da3d0a8553348b0.jpg"
+    },
+    {
+        id: "2",
+        title: "KFC",
+        cuisine: "American Chicken Burgers",
+        rating: "5.4",
+        delivery: "24min",
+        imgId: "https://citynews-milanotoday.stgy.ovh/~media/square-mid/15594032522318/kfc_rex_716_cover-2.jpg"
+    },
+    {
+        id: "3",
+        title: "FiveGuys",
+        cuisine: "American Burgers",
+        rating: "5.9",
+        delivery: "39min",
+        imgId: "https://tb-static.uber.com/prod/image-proc/processed_images/4cab48192e564746535574989e0d8c71/885ba8620d45ab36746a0e8c7b85ee66.jpeg"
+    }
+];
 const Body = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
@@ -18564,36 +18590,27 @@ const Body = ()=>{
                 children: "Search"
             }, void 0, false, {
                 fileName: "Body.js",
-                lineNumber: 6,
+                lineNumber: 33,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "res-container",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
-                        resName: "MacDonald's"
-                    }, void 0, false, {
+                children: resObject.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
+                        resData: restaurant
+                    }, restaurant.id, false, {
                         fileName: "Body.js",
-                        lineNumber: 8,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
-                        resName: "KFC"
-                    }, void 0, false, {
-                        fileName: "Body.js",
-                        lineNumber: 9,
-                        columnNumber: 17
-                    }, undefined)
-                ]
-            }, void 0, true, {
+                        lineNumber: 36,
+                        columnNumber: 49
+                    }, undefined))
+            }, void 0, false, {
                 fileName: "Body.js",
-                lineNumber: 7,
+                lineNumber: 34,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "Body.js",
-        lineNumber: 5,
+        lineNumber: 32,
         columnNumber: 9
     }, undefined);
 };
@@ -18618,29 +18635,23 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const RestaurantCard = (props)=>{
+const RestaurantCard = ({ resData })=>{
+    console.log(resData.title);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "res-card",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "res-img",
                 alt: "res-img",
-                src: "https://www.foodandwine.com/thmb/8N5jLutuTK4TDzpDkhMfdaHLZxI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/McDonalds-Hacks-Menu-FT-1-BLOG0122-4ac9d62f6c9143be8da3d0a8553348b0.jpg"
+                src: resData.imgId
             }, void 0, false, {
                 fileName: "RestaurantCard.js",
-                lineNumber: 4,
+                lineNumber: 5,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 className: "title",
-                children: props.resName
-            }, void 0, false, {
-                fileName: "RestaurantCard.js",
-                lineNumber: 8,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                className: "description"
+                children: resData.title
             }, void 0, false, {
                 fileName: "RestaurantCard.js",
                 lineNumber: 9,
@@ -18648,7 +18659,7 @@ const RestaurantCard = (props)=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 className: "cuisine",
-                children: "American"
+                children: resData.cuisine
             }, void 0, false, {
                 fileName: "RestaurantCard.js",
                 lineNumber: 10,
@@ -18656,15 +18667,18 @@ const RestaurantCard = (props)=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 className: "star",
-                children: "5.5 stars"
-            }, void 0, false, {
+                children: [
+                    resData.rating,
+                    " Star"
+                ]
+            }, void 0, true, {
                 fileName: "RestaurantCard.js",
                 lineNumber: 11,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 className: "del-time",
-                children: "38min"
+                children: resData.delivery
             }, void 0, false, {
                 fileName: "RestaurantCard.js",
                 lineNumber: 12,
@@ -18673,7 +18687,7 @@ const RestaurantCard = (props)=>{
         ]
     }, void 0, true, {
         fileName: "RestaurantCard.js",
-        lineNumber: 3,
+        lineNumber: 4,
         columnNumber: 9
     }, undefined);
 };
