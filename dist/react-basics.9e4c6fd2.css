@@ -1,2 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+.header {
+  border: 1px solid #000;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 10px 0;
+  padding: 0 15px;
+  display: flex;
+}
+
+.nav-items > ul {
+  gap: 15px;
+  display: flex;
+}
+
+.nav-items > ul > li {
+  cursor: pointer;
+  font-size: 22px;
+  list-style-type: none;
+}
 /*# sourceMappingURL=react-basics.9e4c6fd2.css.map */
