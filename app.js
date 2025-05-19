@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './Header';
+import Body from './Body';
 
 /**
  * Header (logo, nav-item)
  * Body
  * - Search (input, button)
- * - Restaurant Container (restaurand cards)
+ * - Restaurant Container 
+ *    - (restaurand cards)
+ *       - img
+ *       - description
+ *       - star
+ *       - title
  * Footer
  * - Copyright
  * - Links
@@ -18,6 +24,7 @@ const AppLayout = () => {
     return(
         <div className='app'>
            <Header/>
+           <Body/>
         </div>
     )
 }

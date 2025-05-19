@@ -23,3 +23,29 @@
     font-size: 22px;
     cursor: pointer;
 }
+
+.body{
+    margin: 10px 10px 10px 10px;
+}
+
+.res-container{
+    margin-top: 10px;
+}
+
+/*restaurant card*/
+
+.res-card{
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.res-card:hover{
+    border: 1px solid lightgray;
+}
+
+.res-img{
+    width: 100%;
+}

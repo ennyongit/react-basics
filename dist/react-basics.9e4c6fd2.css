@@ -23,4 +23,28 @@
   font-size: 22px;
   list-style-type: none;
 }
+
+.body {
+  margin: 10px;
+}
+
+.res-container {
+  margin-top: 10px;
+}
+
+.res-card {
+  cursor: pointer;
+  border: 1px solid #fff;
+  width: 250px;
+  height: 250px;
+  padding: 10px;
+}
+
+.res-card:hover {
+  border: 1px solid #d3d3d3;
+}
+
+.res-img {
+  width: 100%;
+}
 /*# sourceMappingURL=react-basics.9e4c6fd2.css.map */
