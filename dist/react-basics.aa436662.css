@@ -4,13 +4,18 @@
   padding: 0;
 }
 
+.headerContainer {
+  align-items: center;
+  padding: 15px;
+  display: flex;
+}
+
 .menuContainer {
   width: 100%;
 }
 
 .menu {
   justify-content: flex-end;
-  padding: 15px;
   display: flex;
 }
 
@@ -27,5 +32,40 @@ li {
 a {
   color: #000;
   text-decoration: none;
+}
+
+.body {
+  padding: 15px;
+}
+
+.res-container {
+  border: 1px solid #000;
+  width: 250px;
+  height: 250px;
+  padding: 10px;
+}
+
+.res-container:hover {
+  border: 1px solid #d3d3d3;
+}
+
+.searchContainer {
+  gap: 5px;
+  padding: 10px 10px 10px 0;
+  display: flex;
+}
+
+.searchBtn {
+  width: auto;
+  padding: 7px;
+}
+
+.inputText {
+  padding: 7px;
+}
+
+.logoText {
+  cursor: pointer;
+  background-color: #f5eeee;
 }
 /*# sourceMappingURL=react-basics.aa436662.css.map */

@@ -1,26 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import css from './src/style.css'
 
-const App = () => {
+/**
+ * Header (logo, nav-item)
+ * Body
+ * - Search (input, button)
+ * - Restaurant Container (restaurand cards)
+ * Footer
+ * - Copyright
+ * - Links
+ * - Address
+ * - Contact
+ * */ 
+
+const AppLayout = () => {
     return(
-        <>
-        <div className='menuContainer'>
-            <ul className='menu'>
-            <a href=""><li>Apartments</li></a>
-            <a href=""><li>Hotels</li></a>
-            <a href=""><li>Lands</li></a>
-            <a href=""><li>Tours</li></a>
-            <a href=""><li>WebPages</li></a>
-            <a href=""><li>Charity</li></a>
-            </ul>
+        <div className='app'>
+
         </div>
-        </>
-    );
+    )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>);
+root.render();
 
 
 
