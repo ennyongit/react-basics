@@ -72,5 +72,7 @@
 .login{
     width: 70px;
     height: 50px;
-    
+    background-color: white;
+    border: 1px solid lightgray;
+    cursor: pointer;
 }

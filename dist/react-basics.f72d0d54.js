@@ -18580,33 +18580,63 @@ var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
     const [listOfRestaurant, setListOfRestaurant] = (0, _react.useState)((0, _restaurantListDefault.default));
+    const [inputText, setInputText] = (0, _react.useState)("");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "filter",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: ()=>{
-                        let filteredList = listOfRestaurant.filter((res)=>parseFloat(res.rating) > 6);
-                        setListOfRestaurant(filteredList);
-                    },
-                    children: "top rated resturant"
-                }, void 0, false, {
-                    fileName: "src/components/Body.js",
-                    lineNumber: 11,
-                    columnNumber: 17
-                }, undefined)
-            }, void 0, false, {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "search",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "text",
+                                className: "search-box",
+                                value: inputText,
+                                onChange: (e)=>{
+                                    setInputText(e.target.value);
+                                }
+                            }, void 0, false, {
+                                fileName: "src/components/Body.js",
+                                lineNumber: 13,
+                                columnNumber: 21
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                onClick: ()=>{
+                                    // filter and update ui
+                                    let filteredRestaurant = listOfRestaurant.filter((res)=>res.title.toLowerCase().includes(inputText.toLowerCase()));
+                                    setListOfRestaurant(filteredRestaurant);
+                                    console.log(inputText);
+                                },
+                                children: "Search"
+                            }, void 0, false, {
+                                fileName: "src/components/Body.js",
+                                lineNumber: 20,
+                                columnNumber: 21
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Body.js",
+                        lineNumber: 12,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "filter-btn",
+                        onClick: ()=>{
+                            let filteredList = listOfRestaurant.filter((res)=>parseFloat(res.rating) > 6);
+                            setListOfRestaurant(filteredList);
+                        },
+                        children: "top rated resturant"
+                    }, void 0, false, {
+                        fileName: "src/components/Body.js",
+                        lineNumber: 29,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 10,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "search",
-                children: "Search"
-            }, void 0, false, {
-                fileName: "src/components/Body.js",
-                lineNumber: 20,
+                lineNumber: 11,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -18615,22 +18645,22 @@ const Body = ()=>{
                         resData: restaurant
                     }, restaurant.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 24,
+                        lineNumber: 41,
                         columnNumber: 26
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 21,
+                lineNumber: 38,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 9,
+        lineNumber: 10,
         columnNumber: 9
     }, undefined);
 };
-_s(Body, "QploVh97zI20h56YefeDjtB/LjU=");
+_s(Body, "UDSXNixKdNcpBSok9n7cm8UYPEE=");
 _c = Body;
 exports.default = Body;
 var _c;

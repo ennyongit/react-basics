@@ -5,10 +5,28 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
     const [listOfRestaurant, setListOfRestaurant] = useState(RestaurantList);
+    const [inputText, setInputText] = useState("");
     return(
         <div className="body">
             <div className="filter">
-                <button onClick={() => {
+                <div className="search">
+                    <input type="text" 
+                    className="search-box" 
+                    value={inputText}
+                    onChange={(e) => {
+                        setInputText(e.target.value);
+                    }}
+                    />
+                    <button onClick={()=>{
+                        // filter and update ui
+                         let filteredRestaurant =  listOfRestaurant.filter((res) => 
+                           res.title.toLowerCase().includes(inputText.toLowerCase()));
+                         setListOfRestaurant(filteredRestaurant);
+                        console.log(inputText);
+                    }}>Search
+                    </button>
+                </div>
+                <button className="filter-btn" onClick={() => {
                     let filteredList = listOfRestaurant.filter(
                         (res) => parseFloat(res.rating) > 6
                     );
@@ -17,7 +35,6 @@ const Body = () => {
                     top rated resturant
                 </button>
             </div>
-            <div className="search">Search</div>
             <div className="res-container">
                 {
                     listOfRestaurant.map((restaurant) =>
