@@ -4,23 +4,7 @@ import RestaurantList from "./RestaurantList";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-    const [listOfRestaurant, setListOfRestaurant] = useState([]);
-
-    const fetchData = async () => {
-        const response = await fetch("https://fakerestaurantapi.runasp.net/api/Restaurant");
-
-              const json = await response.json();
-              console.log(json);
-              setListOfRestaurant(json);
-    }
-            useEffect(() => {
-                fetchData();
-            }, []);
-
-            if(listOfRestaurant.length === 0){
-                return <Shimmer />
-            }
-            
+    const [listOfRestaurant, setListOfRestaurant] = useState(RestaurantList);
     return(
         <div className="body">
             <div className="filter">
@@ -37,7 +21,7 @@ const Body = () => {
             <div className="res-container">
                 {
                     listOfRestaurant.map((restaurant) =>
-                        (<RestaurantCard key={restaurant.restaurantID} resData={restaurant}/>))
+                        (<RestaurantCard key={restaurant.id} resData={restaurant}/>))
                 }
 
             </div>

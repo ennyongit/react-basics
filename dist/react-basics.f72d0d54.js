@@ -16154,7 +16154,11 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
 const Header = ()=>{
+    _s();
+    const [btnName, setBtnName] = (0, _react.useState)("Login");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "header",
         children: [
@@ -16166,12 +16170,12 @@ const Header = ()=>{
                     width: 120
                 }, void 0, false, {
                     fileName: "src/components/Header.js",
-                    lineNumber: 5,
+                    lineNumber: 7,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Header.js",
-                lineNumber: 4,
+                lineNumber: 6,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -16182,48 +16186,60 @@ const Header = ()=>{
                             children: "Home"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 9,
+                            lineNumber: 11,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "About Us"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 10,
+                            lineNumber: 12,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Contact Us"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 11,
+                            lineNumber: 13,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 12,
+                            lineNumber: 14,
                             columnNumber: 21
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            onClick: ()=>{
+                                btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
+                            },
+                            className: "login",
+                            children: btnName
+                        }, void 0, false, {
+                            fileName: "src/components/Header.js",
+                            lineNumber: 15,
+                            columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Header.js",
-                    lineNumber: 8,
+                    lineNumber: 10,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Header.js",
-                lineNumber: 7,
+                lineNumber: 9,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Header.js",
-        lineNumber: 3,
+        lineNumber: 5,
         columnNumber: 9
     }, undefined);
 };
+_s(Header, "XxbY1IFoMGeOwYtHi7sHrBFs8Hk=");
 _c = Header;
 exports.default = Header;
 var _c;
@@ -16234,7 +16250,7 @@ $RefreshReg$(_c, "Header");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"jnFvT":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U"}],"jnFvT":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -18563,21 +18579,7 @@ var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
-    const [listOfRestaurant, setListOfRestaurant] = (0, _react.useState)([]);
-    const fetchData = async ()=>{
-        const response = await fetch("https://fakerestaurantapi.runasp.net/api/Restaurant");
-        const json = await response.json();
-        console.log(json);
-        setListOfRestaurant(json);
-    };
-    (0, _react.useEffect)(()=>{
-        fetchData();
-    }, []);
-    if (listOfRestaurant.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
-        fileName: "src/components/Body.js",
-        lineNumber: 21,
-        columnNumber: 24
-    }, undefined);
+    const [listOfRestaurant, setListOfRestaurant] = (0, _react.useState)((0, _restaurantListDefault.default));
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         children: [
@@ -18591,12 +18593,12 @@ const Body = ()=>{
                     children: "top rated resturant"
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 27,
+                    lineNumber: 11,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 26,
+                lineNumber: 10,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -18604,31 +18606,31 @@ const Body = ()=>{
                 children: "Search"
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 36,
+                lineNumber: 20,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "res-container",
                 children: listOfRestaurant.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
                         resData: restaurant
-                    }, restaurant.restaurantID, false, {
+                    }, restaurant.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 40,
+                        lineNumber: 24,
                         columnNumber: 26
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 37,
+                lineNumber: 21,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 25,
+        lineNumber: 9,
         columnNumber: 9
     }, undefined);
 };
-_s(Body, "BdiMu3YBtgVHfcLpMKqlgbA9KCQ=");
+_s(Body, "QploVh97zI20h56YefeDjtB/LjU=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -18771,14 +18773,14 @@ const Shimmer = ()=>{
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 3,
-                columnNumber: 9
+                columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 4,
-                columnNumber: 11
+                columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "shimmer-card"
@@ -18792,13 +18794,20 @@ const Shimmer = ()=>{
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 6,
-                columnNumber: 15
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 7,
+                columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Shimmer.js",
         lineNumber: 2,
-        columnNumber: 12
+        columnNumber: 13
     }, undefined);
 };
 _c = Shimmer;
