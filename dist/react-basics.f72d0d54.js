@@ -18561,7 +18561,21 @@ var _restaurantListDefault = parcelHelpers.interopDefault(_restaurantList);
 var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
-    const [listOfRestaurant, setListOfRestaurant] = (0, _react.useState)((0, _restaurantListDefault.default));
+    const [listOfRestaurant, setListOfRestaurant] = (0, _react.useState)([]);
+    const fetchData = async ()=>{
+        try {
+            const response = await fetch("https://fakerestaurantapi.runasp.net/api/Restaurant");
+            if (!response.ok) throw new Error("Failed to fetch");
+            const json = await response.json();
+            console.log(json);
+            setListOfRestaurant(json);
+        } catch (error) {
+            console.log("Error fetching data");
+        }
+    };
+    (0, _react.useEffect)(()=>{
+        fetchData();
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         children: [
@@ -18575,12 +18589,12 @@ const Body = ()=>{
                     children: "top rated resturant"
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 10,
+                    lineNumber: 29,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 9,
+                lineNumber: 28,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -18588,31 +18602,31 @@ const Body = ()=>{
                 children: "Search"
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 19,
+                lineNumber: 38,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "res-container",
                 children: listOfRestaurant.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
                         resData: restaurant
-                    }, restaurant.id, false, {
+                    }, restaurant.restaurantID, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 23,
+                        lineNumber: 42,
                         columnNumber: 26
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 20,
+                lineNumber: 39,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 8,
+        lineNumber: 27,
         columnNumber: 9
     }, undefined);
 };
-_s(Body, "QploVh97zI20h56YefeDjtB/LjU=");
+_s(Body, "BdiMu3YBtgVHfcLpMKqlgbA9KCQ=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -18623,7 +18637,7 @@ $RefreshReg$(_c, "Body");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","./RestaurantCard":"lCpT9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U","./RestaurantList":"0189u"}],"lCpT9":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","./RestaurantCard":"lCpT9","react":"jMk1U","./RestaurantList":"0189u","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"lCpT9":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$7721 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$7721.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -18635,7 +18649,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const RestaurantCard = ({ resData })=>{
-    console.log(resData.title);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "res-card",
         children: [

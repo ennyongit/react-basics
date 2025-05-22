@@ -1,5 +1,5 @@
 const RestaurantCard = ({resData}) => {
-    console.log(resData.title);
+
     return (
         <div className="res-card">
             <img 
