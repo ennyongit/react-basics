@@ -18558,29 +18558,24 @@ var _restaurantCardDefault = parcelHelpers.interopDefault(_restaurantCard);
 var _react = require("react");
 var _restaurantList = require("./RestaurantList");
 var _restaurantListDefault = parcelHelpers.interopDefault(_restaurantList);
+var _shimmer = require("./Shimmer");
+var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
     const [listOfRestaurant, setListOfRestaurant] = (0, _react.useState)([]);
     const fetchData = async ()=>{
-        try {
-            const response = await fetch("https://fakerestaurantapi.runasp.net/api/Restaurant");
-            if (!response.ok) throw new Error("Failed to fetch");
-            const json = await response.json();
-            console.log(json);
-            setListOfRestaurant(json);
-        } catch (error) {
-            console.log("Error fetching data");
-        }
+        const response = await fetch("https://fakerestaurantapi.runasp.net/api/Restaurant");
+        const json = await response.json();
+        console.log(json);
+        setListOfRestaurant(json);
     };
     (0, _react.useEffect)(()=>{
         fetchData();
     }, []);
-    if (listOfRestaurant.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-        children: "Loading..."
-    }, void 0, false, {
+    if (listOfRestaurant.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 28,
+        lineNumber: 21,
         columnNumber: 24
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -18596,12 +18591,12 @@ const Body = ()=>{
                     children: "top rated resturant"
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 33,
+                    lineNumber: 27,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 32,
+                lineNumber: 26,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -18609,7 +18604,7 @@ const Body = ()=>{
                 children: "Search"
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 42,
+                lineNumber: 36,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -18618,18 +18613,18 @@ const Body = ()=>{
                         resData: restaurant
                     }, restaurant.restaurantID, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 46,
+                        lineNumber: 40,
                         columnNumber: 26
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 43,
+                lineNumber: 37,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 31,
+        lineNumber: 25,
         columnNumber: 9
     }, undefined);
 };
@@ -18644,7 +18639,7 @@ $RefreshReg$(_c, "Body");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","./RestaurantCard":"lCpT9","react":"jMk1U","./RestaurantList":"0189u","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"lCpT9":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","./RestaurantCard":"lCpT9","react":"jMk1U","./RestaurantList":"0189u","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./Shimmer":"fSZbx"}],"lCpT9":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$7721 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$7721.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -18756,6 +18751,66 @@ exports.default = RestaurantLists;
 var _c;
 $RefreshReg$(_c, "RestaurantLists");
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["aj62f","4ZGjQ"], "4ZGjQ", "parcelRequiredadd", {}, null, null, "http://localhost:1234")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fSZbx":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$9ecf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$9ecf.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9ecf.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Shimmer = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "shimmer-container",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 3,
+                columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 4,
+                columnNumber: 11
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 5,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 6,
+                columnNumber: 15
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Shimmer.js",
+        lineNumber: 2,
+        columnNumber: 12
+    }, undefined);
+};
+_c = Shimmer;
+exports.default = Shimmer;
+var _c;
+$RefreshReg$(_c, "Shimmer");
+
+  $parcel$ReactRefreshHelpers$9ecf.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["aj62f","4ZGjQ"], "4ZGjQ", "parcelRequiredadd", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=react-basics.f72d0d54.js.map

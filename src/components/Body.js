@@ -1,32 +1,26 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import RestaurantList from "./RestaurantList";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
     const [listOfRestaurant, setListOfRestaurant] = useState([]);
 
     const fetchData = async () => {
-        try{
         const response = await fetch("https://fakerestaurantapi.runasp.net/api/Restaurant");
-            if(!response.ok){
-                throw new Error("Failed to fetch");
-            }
-        
+
               const json = await response.json();
               console.log(json);
               setListOfRestaurant(json);
-
-        } catch(error){
-            console.log("Error fetching data");
-        }
     }
             useEffect(() => {
                 fetchData();
             }, []);
 
             if(listOfRestaurant.length === 0){
-                return <h1>Loading...</h1>
+                return <Shimmer />
             }
+            
     return(
         <div className="body">
             <div className="filter">

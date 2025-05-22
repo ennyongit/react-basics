@@ -53,3 +53,17 @@
     height: 180px;
     object-fit: cover;
 }
+
+/*shimmer UI */ 
+
+.shimmer-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.shimmer-card{
+    width: 250px;
+    height: 330px;
+    background-color: lightgray;
+}
