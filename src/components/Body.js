@@ -4,8 +4,15 @@ import RestaurantList from "./RestaurantList";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-    const [listOfRestaurant, setListOfRestaurant] = useState(RestaurantList);
+    const [listOfRestaurant, setListOfRestaurant] = useState([]);
+    const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [inputText, setInputText] = useState("");
+
+    useEffect(() => {
+        setListOfRestaurant(RestaurantList);
+        setFilteredRestaurant(RestaurantList);
+    },[])
+
     return(
         <div className="body">
             <div className="filter">
@@ -21,7 +28,7 @@ const Body = () => {
                         // filter and update ui
                          let filteredRestaurant =  listOfRestaurant.filter((res) => 
                            res.title.toLowerCase().includes(inputText.toLowerCase()));
-                         setListOfRestaurant(filteredRestaurant);
+                         setFilteredRestaurant(filteredRestaurant);
                         console.log(inputText);
                     }}>Search
                     </button>
@@ -37,7 +44,7 @@ const Body = () => {
             </div>
             <div className="res-container">
                 {
-                    listOfRestaurant.map((restaurant) =>
+                    filteredRestaurant.map((restaurant) =>
                         (<RestaurantCard key={restaurant.id} resData={restaurant}/>))
                 }
 
