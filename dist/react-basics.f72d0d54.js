@@ -700,7 +700,7 @@ const AppLayout = ()=>{
                 lineNumber: 13,
                 columnNumber: 12
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Outlet), {}, void 0, false, {
                 fileName: "app.js",
                 lineNumber: 14,
                 columnNumber: 12
@@ -721,26 +721,36 @@ const appRouter = (0, _reactRouter.createBrowserRouter)([
             lineNumber: 22,
             columnNumber: 18
         }, undefined),
+        children: [
+            {
+                path: "/",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
+                    fileName: "app.js",
+                    lineNumber: 26,
+                    columnNumber: 26
+                }, undefined)
+            },
+            {
+                path: "/about",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
+                    fileName: "app.js",
+                    lineNumber: 30,
+                    columnNumber: 26
+                }, undefined)
+            },
+            {
+                path: "/contact",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contactDefault.default), {}, void 0, false, {
+                    fileName: "app.js",
+                    lineNumber: 34,
+                    columnNumber: 26
+                }, undefined)
+            }
+        ],
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorDefault.default), {}, void 0, false, {
             fileName: "app.js",
-            lineNumber: 23,
+            lineNumber: 37,
             columnNumber: 23
-        }, undefined)
-    },
-    {
-        path: "/about",
-        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
-            fileName: "app.js",
-            lineNumber: 27,
-            columnNumber: 18
-        }, undefined)
-    },
-    {
-        path: "/contact",
-        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contactDefault.default), {}, void 0, false, {
-            fileName: "app.js",
-            lineNumber: 31,
-            columnNumber: 18
         }, undefined)
     }
 ]);
@@ -749,7 +759,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.RouterProv
     router: appRouter
 }, void 0, false, {
     fileName: "app.js",
-    lineNumber: 36,
+    lineNumber: 42,
     columnNumber: 13
 }, undefined)); // const parent = React.createElement("div", {id: "parent"}, [
  //     React.createElement("div", {id:"child"}, [
