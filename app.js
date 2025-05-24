@@ -4,23 +4,8 @@ import Header from './src/components/Header';
 import Body from './src/components/Body';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import About from './src/components/About';
-
-/**
- * Header (logo, nav-item)
- * Body
- * - Search (input, button)
- * - Restaurant Container 
- *    - (restaurand cards)
- *       - img
- *       - description
- *       - star
- *       - title
- * Footer
- * - Copyright
- * - Links
- * - Address
- * - Contact
- * */ 
+import Contact from './src/components/Contact';
+import Error from './src/components/Error';
 
 const AppLayout = () => {
     return(
@@ -34,11 +19,16 @@ const AppLayout = () => {
  const appRouter = createBrowserRouter([
     {
         path: "/",
-        element: <AppLayout/>
+        element: <AppLayout/>,
+        errorElement: <Error/>
     },
     {
         path: "/about",
         element: <About/>
+    },
+       {
+        path: "/contact",
+        element: <Contact/>
     }
  ]);
 
