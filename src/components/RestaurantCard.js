@@ -1,5 +1,4 @@
 const RestaurantCard = ({resData}) => {
-
     return (
         <div className="res-card">
             <img 

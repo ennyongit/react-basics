@@ -8,12 +8,6 @@ const Body = () => {
     const [filteredRestaurant, setFilteredRestaurant] = useState(RestaurantList);
     const [inputText, setInputText] = useState("");
 
-    // useEffect(() => {
-    //     setListOfRestaurant(RestaurantList);
-    //     setFilteredRestaurant(RestaurantList);
-    //     console.log("useEffect Rendered");
-    // },[])
-
     return(
         <div className="body">
             <div className="filter">
