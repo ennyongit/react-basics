@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './src/components/Header';
 import Body from './src/components/Body';
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import About from './src/components/About';
 
 /**
  * Header (logo, nav-item)
@@ -29,8 +31,19 @@ const AppLayout = () => {
     )
 }
 
+ const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <AppLayout/>
+    },
+    {
+        path: "/about",
+        element: <About/>
+    }
+ ]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<AppLayout/>);
+root.render(<RouterProvider router={appRouter}/>);
 
 
 

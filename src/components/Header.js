@@ -1,5 +1,6 @@
 import { useState } from "react";
 const Header = () => {
+    console.log("header");
     const [btnName, setBtnName] = useState("Login");
     return(
         <div className="header">

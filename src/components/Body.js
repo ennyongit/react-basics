@@ -4,14 +4,15 @@ import RestaurantList from "./RestaurantList";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-    const [listOfRestaurant, setListOfRestaurant] = useState([]);
-    const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+    const [listOfRestaurant, setListOfRestaurant] = useState(RestaurantList);
+    const [filteredRestaurant, setFilteredRestaurant] = useState(RestaurantList);
     const [inputText, setInputText] = useState("");
 
-    useEffect(() => {
-        setListOfRestaurant(RestaurantList);
-        setFilteredRestaurant(RestaurantList);
-    },[])
+    // useEffect(() => {
+    //     setListOfRestaurant(RestaurantList);
+    //     setFilteredRestaurant(RestaurantList);
+    //     console.log("useEffect Rendered");
+    // },[])
 
     return(
         <div className="body">
@@ -26,7 +27,7 @@ const Body = () => {
                     />
                     <button onClick={()=>{
                         // filter and update ui
-                         let filteredRestaurant =  listOfRestaurant.filter((res) => 
+                         let filteredRestaurant = listOfRestaurant.filter((res) => 
                            res.title.toLowerCase().includes(inputText.toLowerCase()));
                          setFilteredRestaurant(filteredRestaurant);
                         console.log(inputText);
