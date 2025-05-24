@@ -9,7 +9,6 @@ const RestaurantMenu = () => {
     const restaurant = restaurants.find((r) => r.id === resId);
     console.log(resId);
 
-
     const {title, cuisine, menu} = restaurant.resInfo;
     const {items} = menu;
 
@@ -17,7 +16,7 @@ const RestaurantMenu = () => {
         <div className="menu">
             <h1>{title}</h1>
             <h3>{cuisine}</h3>
-            <h2>menu</h2>   
+            <h2>Menu</h2>   
            <ul>
                 {items.map((item) => {
                 return <li key={item.id}>{item.name}</li>
