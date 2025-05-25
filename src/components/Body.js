@@ -48,7 +48,6 @@ const Body = () => {
                     </Link>
                 ))
                 }
-
             </div>
         </div>
     )

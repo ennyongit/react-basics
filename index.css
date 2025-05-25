@@ -76,3 +76,11 @@
     border: 1px solid lightgray;
     cursor: pointer;
 }
+
+/*About page*/
+
+.user-card{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid lightgray;
+}
