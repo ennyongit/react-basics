@@ -160,11 +160,11 @@
       });
     }
   }
-})({"e3cYr":[function(require,module,exports,__globalThis) {
+})({"aj62f":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 51523;
+var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -28489,6 +28489,7 @@ const Body = ()=>{
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "search-btn",
                                 onClick: ()=>{
                                     // filter and update ui
                                     let filteredRestaurant = listOfRestaurant.filter((res)=>res.title.toLowerCase().includes(inputText.toLowerCase()));
@@ -28513,7 +28514,7 @@ const Body = ()=>{
                             let filteredList = listOfRestaurant.filter((res)=>parseFloat(res.rating) > 6);
                             setListOfRestaurant(filteredList);
                         },
-                        children: "top rated resturant"
+                        children: "Top Rated Resturant"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
                         lineNumber: 32,
@@ -28943,7 +28944,7 @@ $RefreshReg$(_c, "About");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","./UserClass":"dHre4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./User":"gT672"}],"dHre4":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","./UserClass":"dHre4","./User":"gT672","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"dHre4":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$05f4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$05f4.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -28960,37 +28961,26 @@ class UserClass extends (0, _reactDefault.default).Component {
     constructor(props){
         super(props);
         this.state = {
-            count: 0
+            userInfo: {
+                name: "Pedro",
+                location: "France",
+                avatar_url: "'https://avatars.githubusercontent.com/u/182110228?v=4"
+            }
         };
     }
+    async componentDidMount() {
+        const data = await fetch("https://api.github.com/users/ennyongit");
+        const json = await data.json();
+        console.log(json);
+        this.setState({
+            userInfo: json
+        });
+    }
     render() {
-        const { name, location, contact } = this.props;
-        const { count } = this.state;
+        const { name, location, avatar_url } = this.state.userInfo;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "user-card",
             children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: [
-                        "Count: ",
-                        count
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/UserClass.js",
-                    lineNumber: 19,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: ()=>{
-                        this.setState({
-                            count: this.state.count + 1
-                        });
-                    },
-                    children: "Count Increase"
-                }, void 0, false, {
-                    fileName: "src/components/UserClass.js",
-                    lineNumber: 20,
-                    columnNumber: 17
-                }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                     children: [
                         "Name:",
@@ -28998,7 +28988,7 @@ class UserClass extends (0, _reactDefault.default).Component {
                     ]
                 }, void 0, true, {
                     fileName: "src/components/UserClass.js",
-                    lineNumber: 25,
+                    lineNumber: 31,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -29008,23 +28998,22 @@ class UserClass extends (0, _reactDefault.default).Component {
                     ]
                 }, void 0, true, {
                     fileName: "src/components/UserClass.js",
-                    lineNumber: 26,
+                    lineNumber: 32,
                     columnNumber: 17
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                    children: [
-                        "Contact:",
-                        contact
-                    ]
-                }, void 0, true, {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: avatar_url,
+                    width: 200,
+                    height: 200
+                }, void 0, false, {
                     fileName: "src/components/UserClass.js",
-                    lineNumber: 27,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/UserClass.js",
-            lineNumber: 18,
+            lineNumber: 30,
             columnNumber: 13
         }, this);
     }
@@ -29268,6 +29257,6 @@ $RefreshReg$(_c, "RestaurantMenu");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./RestaurantList":"0189u","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["e3cYr","4ZGjQ"], "4ZGjQ", "parcelRequiredadd", {}, null, null, "http://localhost:51523")
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./RestaurantList":"0189u","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["aj62f","4ZGjQ"], "4ZGjQ", "parcelRequiredadd", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=react-basics.f72d0d54.js.map

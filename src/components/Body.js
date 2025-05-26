@@ -20,7 +20,7 @@ const Body = () => {
                         setInputText(e.target.value);
                     }}
                     />
-                    <button onClick={()=>{
+                    <button className="search-btn" onClick={()=>{
                         // filter and update ui
                          let filteredRestaurant = listOfRestaurant.filter((res) => 
                            res.title.toLowerCase().includes(inputText.toLowerCase()));
@@ -35,7 +35,7 @@ const Body = () => {
                     );
                     setListOfRestaurant(filteredList);
                 }}>
-                    top rated resturant
+                    Top Rated Resturant
                 </button>
             </div>
             <div className="res-container">

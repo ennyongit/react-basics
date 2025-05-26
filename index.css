@@ -55,6 +55,14 @@
     object-fit: cover;
 }
 
+.filter-btn{
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid lightgray;
+    background:none;
+    cursor: pointer;
+}
+
 /*shimmer UI */ 
 
 .shimmer-container{
@@ -83,4 +91,8 @@
     margin: 10px;
     padding: 10px;
     border: 1px solid lightgray;
+}
+
+a{
+   text-decoration: none;
 }
