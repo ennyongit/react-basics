@@ -1,8 +1,8 @@
 const RestaurantCard = ({resData}) => {
     return (
-        <div className="res-card">
+        <div className="res-card border border-transparent hover:border-gray-300 p-1">
             <img 
-                className="res-img" 
+                className="res-img w-60 h-60 object-cover" 
                 alt="res-img"
                 src={resData.imgId}/>
             <h3 className="title">{resData.title}</h3>

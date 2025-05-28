@@ -13,7 +13,7 @@ const Body = () => {
     const onlineStatus = useOnlineStatus();
     if(onlineStatus === false) return <h1 className="onlineStatus">Please Check Your Connection!</h1>;
     return(
-        <div className="body">
+        <div className="body mt-10">
             <div className="filter">
                 <div className="search">
                     <input type="text" 
@@ -41,7 +41,7 @@ const Body = () => {
                     Top Rated Resturant
                 </button>
             </div>
-            <div className="res-container">
+            <div className="res-container mt-10 flex gap-[20px]">
                 {
                     filteredRestaurant.map((restaurant) =>(
                     <Link 
