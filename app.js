@@ -34,7 +34,7 @@ const AppLayout = () => {
                 path: "/contact",
                 element: <Contact/>
             },
-            {
+            { // url parameter: resId
                 path:"/restaurants/:resId",
                 element: <RestaurantMenu/>
             }

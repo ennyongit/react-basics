@@ -96,3 +96,7 @@
 a{
    text-decoration: none;
 }
+
+.onlineStatus{
+    padding: 10px;
+}

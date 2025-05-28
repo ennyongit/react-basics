@@ -3,12 +3,15 @@ import { useState, useEffect } from "react";
 import RestaurantList from "./RestaurantList";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useOnlineStatus from "./utils/useOnlineStatus";
 
 const Body = () => {
     const [listOfRestaurant, setListOfRestaurant] = useState(RestaurantList);
     const [filteredRestaurant, setFilteredRestaurant] = useState(RestaurantList);
     const [inputText, setInputText] = useState("");
 
+    const onlineStatus = useOnlineStatus();
+    if(onlineStatus === false) return <h1 className="onlineStatus">Please Check Your Connection!</h1>;
     return(
         <div className="body">
             <div className="filter">

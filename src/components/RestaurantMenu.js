@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 
 
 const RestaurantMenu = () => {
+    // gets id from route context (matched id)
     const { resId } = useParams();
     const restaurants = RestaurantLists();
     const restaurant = restaurants.find((r) => r.id === resId);

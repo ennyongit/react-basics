@@ -3,7 +3,6 @@ import React from "react";
 class UserClass extends React.Component {
     constructor(props){
         super(props);
-
          this.state = {
             userInfo: {
                 name: "Pedro",
@@ -12,7 +11,7 @@ class UserClass extends React.Component {
             }
          }
     }
-
+    
     async componentDidMount() {
         const data = await fetch("https://api.github.com/users/ennyongit");
         const json = await data.json();
