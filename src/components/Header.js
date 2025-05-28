@@ -6,28 +6,28 @@ const Header = () => {
     const [btnName, setBtnName] = useState("Login");
     const onlineStatus = useOnlineStatus();
     return(
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo-img" src="https://images.seeklogo.com/logo-png/48/1/food-delivery-symbol-logo-png_seeklogo-486549.png" width={120}/>               
+        <div className="header flex justify-between items-center flex-wrap border border-gray-300">
+            <div className="logo-container w-50">
+                <img className="logo-img " src="https://images.seeklogo.com/logo-png/48/1/food-delivery-symbol-logo-png_seeklogo-486549.png" width={120}/>               
             </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
+            <div className="nav-items px-5">
+                <ul className="flex gap-[15px] flex-wrap">
+                    <li className="text-xl text-center">Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link className="text-xl" to="/">Home</Link>
                     </li>
                     <li>
-                         <Link to="/about">About us</Link>
+                         <Link className="text-xl"  to="/about">About us</Link>
                     </li>
                     <li>
-                         <Link to="/contact">Contact us</Link>
+                         <Link className="text-xl"  to="/contact">Contact us</Link>
                     </li>
-                    <li>Cart</li>
+                    <li className="text-xl">Cart</li>
                 <button onClick={() => {
                         btnName === "Login" 
                         ? setBtnName("Logout") 
                         : setBtnName("Login");
-                }} className="login">{btnName}</button>
+                }} className="login text-xl">{btnName}</button>
                 </ul>
             </div>
         </div>
