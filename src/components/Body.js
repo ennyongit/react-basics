@@ -14,16 +14,16 @@ const Body = () => {
     if(onlineStatus === false) return <h1 className="onlineStatus">Please Check Your Connection!</h1>;
     return(
         <div className="body mt-10">
-            <div className="filter">
-                <div className="search">
+            <div className="filter flex gap-5">
+                <div className="search flex gap-2">
                     <input type="text" 
-                    className="search-box" 
+                    className="search-box border p-2 focus:outline-none rounded-md" 
                     value={inputText}
                     onChange={(e) => {
                         setInputText(e.target.value);
                     }}
                     />
-                    <button className="search-btn" onClick={()=>{
+                    <button className="search-btn border border-gray-300 hover:bg-gray-50 p-2 rounded-md" onClick={()=>{
                         // filter and update ui
                          let filteredRestaurant = listOfRestaurant.filter((res) => 
                            res.title.toLowerCase().includes(inputText.toLowerCase()));
@@ -32,7 +32,7 @@ const Body = () => {
                     }}>Search
                     </button>
                 </div>
-                <button className="filter-btn" onClick={() => {
+                <button className="filter-btn border hover:bg-gray-50 p-2 rounded-md" onClick={() => {
                     let filteredList = listOfRestaurant.filter(
                         (res) => parseFloat(res.rating) > 6
                     );

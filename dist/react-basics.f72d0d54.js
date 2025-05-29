@@ -28542,14 +28542,14 @@ const Body = ()=>{
         className: "body mt-10",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "filter",
+                className: "filter flex gap-5",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "search",
+                        className: "search flex gap-2",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 type: "text",
-                                className: "search-box",
+                                className: "search-box border p-2 focus:outline-none rounded-md",
                                 value: inputText,
                                 onChange: (e)=>{
                                     setInputText(e.target.value);
@@ -28560,7 +28560,7 @@ const Body = ()=>{
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                className: "search-btn",
+                                className: "search-btn border border-gray-300 hover:bg-gray-50 p-2 rounded-md",
                                 onClick: ()=>{
                                     // filter and update ui
                                     let filteredRestaurant = listOfRestaurant.filter((res)=>res.title.toLowerCase().includes(inputText.toLowerCase()));
@@ -28580,7 +28580,7 @@ const Body = ()=>{
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "filter-btn",
+                        className: "filter-btn border hover:bg-gray-50 p-2 rounded-md",
                         onClick: ()=>{
                             let filteredList = listOfRestaurant.filter((res)=>parseFloat(res.rating) > 6);
                             setListOfRestaurant(filteredList);
@@ -28653,7 +28653,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const RestaurantCard = ({ resData })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "res-card border border-transparent hover:border-gray-300 p-1",
+        className: "res-card border border-transparent hover:border-gray-300 p-1 rounded-md",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "res-img w-60 h-60 object-cover",
@@ -28665,7 +28665,7 @@ const RestaurantCard = ({ resData })=>{
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                className: "title",
+                className: "title font-bold text-lg",
                 children: resData.title
             }, void 0, false, {
                 fileName: "src/components/RestaurantCard.js",
