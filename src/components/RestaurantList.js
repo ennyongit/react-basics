@@ -26,7 +26,8 @@ const RestaurantLists = () => {
                 {id: 10, name: "Coca-Cola "},
               ]
           }
-       } 
+       },
+       promoted: "Promoted"
     },
 {
     id: "2",

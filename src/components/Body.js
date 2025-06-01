@@ -1,14 +1,18 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import RestaurantList from "./RestaurantList";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "./utils/useOnlineStatus";
 
+
 const Body = () => {
     const [listOfRestaurant, setListOfRestaurant] = useState(RestaurantList);
     const [filteredRestaurant, setFilteredRestaurant] = useState(RestaurantList);
     const [inputText, setInputText] = useState("");
+
+    // return new component which has label inside it
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
     const onlineStatus = useOnlineStatus();
     if(onlineStatus === false) return <h1 className="onlineStatus">Please Check Your Connection!</h1>;
@@ -46,8 +50,14 @@ const Body = () => {
                     filteredRestaurant.map((restaurant) =>(
                     <Link 
                      key={restaurant.id}
-                     to={"/restaurants/" + restaurant.id}>
-                     <RestaurantCard resData={restaurant}/>
+                     to={"/restaurants/" + restaurant.id}
+                     >
+                        {
+                            restaurant.promoted ? 
+                             <RestaurantCardPromoted resData={restaurant}/> :
+                             <RestaurantCard resData={restaurant}/>
+                        }
+                    
                     </Link>
                 ))
                 }
