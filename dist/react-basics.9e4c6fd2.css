@@ -251,6 +251,10 @@ img, video {
   position: absolute;
 }
 
+.m-2 {
+  margin: .5rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -265,6 +269,10 @@ img, video {
 
 .w-60 {
   width: 15rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .flex-wrap {
@@ -295,12 +303,12 @@ img, video {
   gap: 20px;
 }
 
-.rounded-md {
-  border-radius: .375rem;
+.rounded {
+  border-radius: .25rem;
 }
 
-.rounded-sm {
-  border-radius: .125rem;
+.rounded-md {
+  border-radius: .375rem;
 }
 
 .border {
@@ -319,6 +327,11 @@ img, video {
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
 .object-cover {
@@ -340,6 +353,11 @@ img, video {
 
 .text-center {
   text-align: center;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-lg {

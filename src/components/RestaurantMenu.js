@@ -1,28 +1,22 @@
 import { useState, useEffect } from "react";
-import RestaurantLists from "./RestaurantList";
 import { useParams } from "react-router";
 
 
 const RestaurantMenu = () => {
     // gets id from route context (matched id)
     const { resId } = useParams();
+
+    // ეს არის რესტორნის ლისტები, აქ ამის მაგიერ უნდა წამოვიღო ფეჩით.
     const restaurants = RestaurantLists();
     const restaurant = restaurants.find((r) => r.id === resId);
-    console.log(resId);
+   
 
     const {title, cuisine, menu} = restaurant.resInfo;
-    const {items} = menu;
+    const {category} = menu;
 
     return(
-        <div className="menu">
-            <h1>{title}</h1>
-            <h3>{cuisine}</h3>
-            <h2>Menu</h2>   
-           <ul>
-                {items.map((item) => {
-                return <li key={item.id}>{item.name}</li>
-                })}
-            </ul>
+        <div className="menu text-center">
+             <h1 className="font-bold m-2 bg-gray-100 p-2 text-2xl rounded cursor-pointer">{title}</h1>
         </div>
     )
 }
