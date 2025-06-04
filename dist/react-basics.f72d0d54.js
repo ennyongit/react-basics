@@ -28533,7 +28533,6 @@ const Body = ()=>{
     const fetchData = async ()=>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        console.log(json);
         const restaurants = json?.data.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
         setListOfRestaurant(restaurants);
         setFilteredRestaurant(restaurants);
@@ -28548,7 +28547,7 @@ const Body = ()=>{
         children: "Please Check Your Connection!"
     }, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 36,
+        lineNumber: 35,
         columnNumber: 39
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28569,7 +28568,7 @@ const Body = ()=>{
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 42,
+                                lineNumber: 41,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28583,13 +28582,13 @@ const Body = ()=>{
                                 children: "Search"
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 49,
+                                lineNumber: 48,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 41,
+                        lineNumber: 40,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28601,20 +28600,20 @@ const Body = ()=>{
                         children: "Top Rated Resturant"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 58,
+                        lineNumber: 57,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 40,
+                lineNumber: 39,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "res-container mt-10 flex flex-wrap justify-between",
                 children: !filteredRestaurant?.length ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 69,
+                    lineNumber: 68,
                     columnNumber: 51
                 }, undefined) : filteredRestaurant.map((restaurant)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Link), {
                         to: "/restaurants/" + restaurant.info.id,
@@ -28622,23 +28621,23 @@ const Body = ()=>{
                             resData: restaurant
                         }, restaurant.info.id, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 77,
+                            lineNumber: 75,
                             columnNumber: 30
                         }, undefined)
                     }, restaurant.info.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 71,
+                        lineNumber: 70,
                         columnNumber: 21
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 67,
+                lineNumber: 66,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 39,
+        lineNumber: 38,
         columnNumber: 9
     }, undefined);
 };
@@ -28768,43 +28767,38 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const Shimmer = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "shimmer-container",
+        className: "shimmer-container flex justify-between w-full",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "1"
+                className: "shimmer-card border w-64 h-64 bg-slate-100"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 3,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "2"
+                className: "shimmer-card w-64 h-64 bg-slate-100"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 4,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "3"
+                className: "shimmer-card w-64 h-64 bg-slate-100"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 5,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "4"
+                className: "shimmer-card w-64 h-64 bg-slate-100"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 6,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "5"
+                className: "shimmer-card w-64 h-64 bg-slate-100"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 7,
