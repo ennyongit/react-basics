@@ -1,22 +1,34 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-
+import Shimmer from "./Shimmer";
 
 const RestaurantMenu = () => {
-    // gets id from route context (matched id)
-    const { resId } = useParams();
+    const [resInfo, setResInfo] = useState(null);
 
-    // ეს არის რესტორნის ლისტები, აქ ამის მაგიერ უნდა წამოვიღო ფეჩით.
-    const restaurants = RestaurantLists();
-    const restaurant = restaurants.find((r) => r.id === resId);
-   
+    useEffect(()=> {
+        fetchMenu();
+    },[]);
 
-    const {title, cuisine, menu} = restaurant.resInfo;
-    const {category} = menu;
+    const fetchMenu = async () => {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+        console.log(json);
+
+         const restaurantInfo =
+             json?.data.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.[0]?.info;
+                 setResInfo(restaurantInfo);
+    }
+
+       
+       if (!resInfo) return <Shimmer />;
+
+          const { name, cuisines, costForTwo, cloudinaryImageId } = resInfo;
 
     return(
         <div className="menu text-center">
-             <h1 className="font-bold m-2 bg-gray-100 p-2 text-2xl rounded cursor-pointer">{title}</h1>
+             <h1 className="font-bold m-2 bg-gray-100 p-2 text-2xl rounded cursor-pointer">{name}</h1>
+                <p>{cuisines?.join(", ")}</p>
+                    <p>Cost for two: {costForTwo}</p>
         </div>
     )
 }

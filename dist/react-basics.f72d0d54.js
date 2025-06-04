@@ -28534,6 +28534,7 @@ const Body = ()=>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
         const restaurants = json?.data.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        console.log(json?.data.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.[0]?.info);
         setListOfRestaurant(restaurants);
         setFilteredRestaurant(restaurants);
         console.log("after fetch");
@@ -29115,37 +29116,64 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactRouter = require("react-router");
+var _shimmer = require("./Shimmer");
+var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _s = $RefreshSig$();
 const RestaurantMenu = ()=>{
     _s();
-    // gets id from route context (matched id)
-    const { resId } = (0, _reactRouter.useParams)();
-    // ეს არის რესტორნის ლისტები, აქ ამის მაგიერ უნდა წამოვიღო ფეჩით.
-    const restaurants = RestaurantLists();
-    const restaurant = restaurants.find((r)=>r.id === resId);
-    const { title, cuisine, menu } = restaurant.resInfo;
-    const { category } = menu;
+    const [resInfo, setResInfo] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        fetchMenu();
+    }, []);
+    const fetchMenu = async ()=>{
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+        console.log(json);
+        const restaurantInfo = json?.data.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.[0]?.info;
+        setResInfo(restaurantInfo);
+    };
+    if (!resInfo) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
+        fileName: "src/components/RestaurantMenu.js",
+        lineNumber: 23,
+        columnNumber: 29
+    }, undefined);
+    const { name, cuisines, costForTwo, cloudinaryImageId } = resInfo;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "menu text-center",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            className: "font-bold m-2 bg-gray-100 p-2 text-2xl rounded cursor-pointer",
-            children: title
-        }, void 0, false, {
-            fileName: "src/components/RestaurantMenu.js",
-            lineNumber: 19,
-            columnNumber: 14
-        }, undefined)
-    }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "font-bold m-2 bg-gray-100 p-2 text-2xl rounded cursor-pointer",
+                children: name
+            }, void 0, false, {
+                fileName: "src/components/RestaurantMenu.js",
+                lineNumber: 29,
+                columnNumber: 14
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: cuisines?.join(", ")
+            }, void 0, false, {
+                fileName: "src/components/RestaurantMenu.js",
+                lineNumber: 30,
+                columnNumber: 17
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "Cost for two: ",
+                    costForTwo
+                ]
+            }, void 0, true, {
+                fileName: "src/components/RestaurantMenu.js",
+                lineNumber: 31,
+                columnNumber: 21
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/components/RestaurantMenu.js",
-        lineNumber: 18,
+        lineNumber: 28,
         columnNumber: 9
     }, undefined);
 };
-_s(RestaurantMenu, "XJPEQ1WBMiHYYq91UgCwMW8YUl0=", false, function() {
-    return [
-        (0, _reactRouter.useParams)
-    ];
-});
+_s(RestaurantMenu, "hwGjLfSdFvMgUl5xpwSM0SJv98A=");
 _c = RestaurantMenu;
 exports.default = RestaurantMenu;
 var _c;
@@ -29156,6 +29184,6 @@ $RefreshReg$(_c, "RestaurantMenu");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"giGSC":[function() {},{}]},["aj62f","4ZGjQ"], "4ZGjQ", "parcelRequiredadd", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./Shimmer":"fSZbx"}],"giGSC":[function() {},{}]},["aj62f","4ZGjQ"], "4ZGjQ", "parcelRequiredadd", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=react-basics.f72d0d54.js.map
