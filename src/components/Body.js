@@ -18,12 +18,8 @@ const Body = () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
 
-        // Find the card that contains the restaurants array
-            const restaurantCard = json?.data?.cards.find(card =>
-                card?.card?.card?.gridElements?.infoWithStyle?.restaurants
-            );
-
-         const restaurants = restaurantCard?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+        console.log(json);
+         const restaurants = json?.data.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
             setListOfRestaurant(restaurants);
             setFilteredRestaurant(restaurants);
@@ -68,7 +64,7 @@ const Body = () => {
                     Top Rated Resturant
                 </button>
             </div>
-            <div className="res-container mt-10 flex gap-[20px]">
+            <div className="res-container mt-10 flex flex-wrap justify-between">
                 {
                     !filteredRestaurant?.length ? <Shimmer /> :(
                     filteredRestaurant.map((restaurant) =>(
