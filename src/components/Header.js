@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "./utils/useOnlineStatus";
 const Header = () => {
-    console.log("header");
+
     const [btnName, setBtnName] = useState("Login");
     const onlineStatus = useOnlineStatus();
     return(

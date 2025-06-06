@@ -1,5 +1,6 @@
 import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import { useState, useEffect } from "react";
+import { fetchRestaurants } from './utils/fetchRestaurants';
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "./utils/useOnlineStatus";
@@ -10,24 +11,14 @@ const Body = () => {
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [inputText, setInputText] = useState("");
 
-    useEffect(() => {
-        fetchData();
-    },[])
-
-    const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
-
-         const restaurants = json?.data.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-            console.log(json?.data.cards?.[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.[0]?.info)
-            setListOfRestaurant(restaurants);
-            setFilteredRestaurant(restaurants);
-
-        console.log("after fetch");
-};
-
-    console.log("Before fetch");
-
+        useEffect(() => {
+            getRestaurants();
+        },[])
+            const getRestaurants = async () => {
+                const restaurants = await fetchRestaurants();
+                setListOfRestaurant(restaurants);
+                setFilteredRestaurant(restaurants);
+            }
     // return new component which has label inside it
     const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
