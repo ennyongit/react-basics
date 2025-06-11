@@ -28759,8 +28759,9 @@ $RefreshReg$(_c, "RestaurantCard");
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "fetchRestaurants", ()=>fetchRestaurants);
+var _constants = require("./constants");
 const fetchRestaurants = async ()=>{
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6110886&lng=77.2345184&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch((0, _constants.RESTAURANT_API));
     const json = await data.json();
     console.log(json);
     const restaurantCard = json?.data?.cards?.find((card)=>card?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -28769,6 +28770,12 @@ const fetchRestaurants = async ()=>{
     console.log(restaurants);
     return restaurants || [];
 };
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./constants":"hNgtl"}],"hNgtl":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "RESTAURANT_API", ()=>RESTAURANT_API);
+const RESTAURANT_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6110886&lng=77.2345184&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fSZbx":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$9ecf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
@@ -29181,29 +29188,31 @@ const RestaurantMenu = ()=>{
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                             children: itemCards.map((item)=>{
-                                const { name, price } = item.card.info;
+                                const { name, price, imageId, description } = item.card.info;
                                 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "",
-                                            children: [
-                                                "Name: ",
-                                                name
-                                            ]
-                                        }, void 0, true, {
+                                            children: name
+                                        }, void 0, false, {
                                             fileName: "src/components/RestaurantMenu.js",
                                             lineNumber: 51,
                                             columnNumber: 33
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "",
-                                            children: [
-                                                "Price: ",
-                                                price
-                                            ]
-                                        }, void 0, true, {
+                                            children: price
+                                        }, void 0, false, {
                                             fileName: "src/components/RestaurantMenu.js",
                                             lineNumber: 52,
+                                            columnNumber: 33
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                            className: "w-60 h-60",
+                                            src: `https://media-assets.swiggy.com/swiggy/image/upload/${imageId}`
+                                        }, void 0, false, {
+                                            fileName: "src/components/RestaurantMenu.js",
+                                            lineNumber: 53,
                                             columnNumber: 33
                                         }, undefined)
                                     ]

@@ -45,11 +45,12 @@ const RestaurantMenu = () => {
                       <ul>
                         {
                           itemCards.map((item) => {
-                              const {name, price} = item.card.info;
+                              const {name, price, imageId, description} = item.card.info;
                             return(
                             <li key={item.card.info.id}>
-                                <div className="">Name: {name}</div>
-                                <div className="">Price: {price}</div>
+                                <div className="">{name}</div>
+                                <div className="">{price}</div>
+                                <img className="w-60 h-60" src={`https://media-assets.swiggy.com/swiggy/image/upload/${imageId}`}/>
                             </li>
                             )
                           })
