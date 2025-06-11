@@ -5,11 +5,13 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "./utils/useOnlineStatus";
 
-
 const Body = () => {
     const [listOfRestaurant, setListOfRestaurant] = useState([]);
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [inputText, setInputText] = useState("");
+
+    const onlineStatus = useOnlineStatus();
+    if(onlineStatus === false) return <h1 className="onlineStatus">Please Check Your Connection!</h1>;
 
         useEffect(() => {
             getRestaurants();
@@ -18,13 +20,13 @@ const Body = () => {
                 const restaurants = await fetchRestaurants();
                 setListOfRestaurant(restaurants);
                 setFilteredRestaurant(restaurants);
+                console.log(restaurants);
             }
+            
     // return new component which has label inside it
     const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
-
-    const onlineStatus = useOnlineStatus();
-    if(onlineStatus === false) return <h1 className="onlineStatus">Please Check Your Connection!</h1>;
-
+    
+    if (listOfRestaurant.length === 0) return <Shimmer />;
     return (
         <div className="body mt-10">
             <div className="filter flex gap-5">

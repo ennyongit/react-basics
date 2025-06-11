@@ -1,5 +1,4 @@
 const RestaurantCard = ({resData}) => {
-    console.log(resData);
     const {name, cloudinaryImageId, cuisines, avgRating} = resData.info;
     return (
         <div className="res-card border border-transparent hover:border-gray-300 p-1 rounded-md w-64 divide-transparent">

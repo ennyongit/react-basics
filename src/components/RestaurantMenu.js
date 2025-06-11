@@ -4,36 +4,49 @@ import { useParams } from "react-router";
 import Shimmer from "./Shimmer";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState();
+  const [menuSections, setMenuSections] = useState("");
   const { resId } = useParams();
 
   useEffect(() => {
     getRestaurantMenu();
   }, []);
           const getRestaurantMenu = async () => {
-          const restaurants = await fetchRestaurants();
+            const restaurantMenu = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.3266973&lng=82.9869733&restaurantId=${resId}`);
+            const json = await restaurantMenu.json();
+            console.log(json);
 
-          const individualRestaurant = restaurants.find(
-                (res) => res.info.id === resId
-            );
-                setResInfo(individualRestaurant);
-                console.log(individualRestaurant);
+            {/** აქ მაქვს ის ობიექტი, რომელიც შეიცავს groupedCard-ს */}
+            const findMenu = json?.data?.cards.find(
+              (card) => card?.groupedCard)
+                 console.log(findMenu);
+
+                 {/**აქ მაქვს მთლიანი card ობიექტი რომელიც შეიიცავს itemCards */}
+              const regularCards = findMenu?.groupedCard.cardGroupMap?.REGULAR?.cards;
+              
+              const sections = regularCards.filter((card) => card?.card?.card?.itemCards) || [];
+              console.log(sections);
+
+                setMenuSections(sections);
           }
 
 
-  if (!resInfo) return <Shimmer />;
+  if (!menuSections) return <Shimmer />;
 
-  const { name, areaName, avgRatingString} = resInfo.info;
+      return(
+        <div>
+          <div className="menu text-center">
+              {menuSections.map((section, index) => {
+                const {title, itemCards} = section.card.card;
+                return(
+                  <div key={index}>
+                      <h1>{title}</h1>
+                  </div>
+                )
+              })}      
+          </div>
+        </div>
+      )
 
-  return (
-    <div className="menu text-center">
-      <h1 className="font-bold m-2 bg-gray-100 p-2 text-2xl rounded cursor-pointer">
-        {name}
-      </h1>
-      <p className="">Location: {areaName}</p>
-      <p>Rating: {avgRatingString}</p>
-    </div>
-  );
 };
 
 export default RestaurantMenu;
