@@ -4,39 +4,40 @@ import { useParams } from "react-router";
 import Shimmer from "./Shimmer";
 
 const RestaurantMenu = () => {
-  const [menuSections, setMenuSections] = useState([]);
+  const [menuSection, setMenuSections] = useState([]);
   const { resId } = useParams();
 
   useEffect(() => {
     getRestaurantMenu();
   }, []);
           const getRestaurantMenu = async () => {
-            const restaurantMenu = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.3266973&lng=82.9869733&restaurantId=${resId}`);
+            const restaurantMenu = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6110886&lng=77.2345184&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
             const json = await restaurantMenu.json();
             console.log(json);
 
-            {/** აქ მაქვს ის ობიექტი, რომელიც შეიცავს groupedCard-ს */}
-            const findMenu = json?.data?.cards.find(
-              (card) => card?.groupedCard)
-                 console.log(findMenu);
+                  {/** აქ მაქვს ის ობიექტი, რომელიც შეიცავს groupedCard-ს */}
+            const findMenu = json?.data?.cards.find(card => card?.groupedCard);
+            console.log(findMenu);
 
                  {/**აქ მაქვს მთლიანი card ობიექტი რომელიც შეიიცავს itemCards */}
-              const regularCards = findMenu?.groupedCard.cardGroupMap?.REGULAR?.cards;
+              const groupedCards = findMenu?.groupedCard.cardGroupMap?.REGULAR?.cards;
+              console.log(groupedCards);
               
               {/**აქ ინახება გაფილტრულიი cards array, ორმელიც შეიცავს itemCards */}
-              const sections = regularCards.filter((card) => card?.card?.card?.itemCards) || [];
-              console.log(sections);
+              const section = groupedCards.filter(card => card?.card?.card?.itemCards) || [];
+              console.log(section);
 
-                setMenuSections(sections);
+              setMenuSections(section);
+
           }
 
 
-  if (!menuSections) return <Shimmer />;
+  if (!menuSection) return <Shimmer />;
 
       return(
         <div>
           <div className="menu text-center">
-              {menuSections.map((section, index) => {
+              {menuSection.map((section, index) => {
                 const {title, itemCards} = section.card.card;
                 return(
                   <div key={index}>
@@ -44,8 +45,12 @@ const RestaurantMenu = () => {
                       <ul>
                         {
                           itemCards.map((item) => {
+                              const {name, price} = item.card.info;
                             return(
-                            <li key={item.card.info.id}>{item.card.info.name}</li>
+                            <li key={item.card.info.id}>
+                                <div className="">Name: {name}</div>
+                                <div className="">Price: {price}</div>
+                            </li>
                             )
                           })
                         }
