@@ -23,6 +23,7 @@ const RestaurantMenu = () => {
                  {/**აქ მაქვს მთლიანი card ობიექტი რომელიც შეიიცავს itemCards */}
               const regularCards = findMenu?.groupedCard.cardGroupMap?.REGULAR?.cards;
               
+              {/**აქ ინახება გაფილტრულიი cards array, ორმელიც შეიცავს itemCards */}
               const sections = regularCards.filter((card) => card?.card?.card?.itemCards) || [];
               console.log(sections);
 
@@ -39,7 +40,16 @@ const RestaurantMenu = () => {
                 const {title, itemCards} = section.card.card;
                 return(
                   <div key={index}>
-                      <h1>{title}</h1>
+                      <h1 className="text-xl font-bold bg-slate-100 mt-1 p-2">{title} ({itemCards.length})</h1>
+                      <ul>
+                        {
+                          itemCards.map((item) => {
+                            return(
+                            <li key={item.id}>{item.card.info.name}</li>
+                            )
+                          })
+                        }
+                      </ul>
                   </div>
                 )
               })}      

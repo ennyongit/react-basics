@@ -263,6 +263,10 @@ img, video {
   margin-top: .5rem;
 }
 
+.mt-1 {
+  margin-top: .25rem;
+}
+
 .flex {
   display: flex;
 }
@@ -355,6 +359,11 @@ img, video {
   background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
 }
 
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity, 1));
+}
+
 .object-cover {
   object-fit: cover;
 }
@@ -365,6 +374,10 @@ img, video {
 
 .p-2 {
   padding: .5rem;
+}
+
+.p-3 {
+  padding: .75rem;
 }
 
 .px-5 {

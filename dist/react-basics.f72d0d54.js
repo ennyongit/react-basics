@@ -29156,7 +29156,7 @@ const RestaurantMenu = ()=>{
     };
     if (!menuSections) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/RestaurantMenu.js",
-        lineNumber: 33,
+        lineNumber: 34,
         columnNumber: 29
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29165,27 +29165,50 @@ const RestaurantMenu = ()=>{
             children: menuSections.map((section, index)=>{
                 const { title, itemCards } = section.card.card;
                 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                        children: title
-                    }, void 0, false, {
-                        fileName: "src/components/RestaurantMenu.js",
-                        lineNumber: 42,
-                        columnNumber: 23
-                    }, undefined)
-                }, index, false, {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                            className: "text-xl font-bold bg-slate-100 mt-1 p-2",
+                            children: [
+                                title,
+                                " (",
+                                itemCards.length,
+                                ")"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/RestaurantMenu.js",
+                            lineNumber: 43,
+                            columnNumber: 23
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                            children: itemCards.map((item)=>{
+                                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    children: item.card.info.name
+                                }, item.id, false, {
+                                    fileName: "src/components/RestaurantMenu.js",
+                                    lineNumber: 48,
+                                    columnNumber: 29
+                                }, undefined);
+                            })
+                        }, void 0, false, {
+                            fileName: "src/components/RestaurantMenu.js",
+                            lineNumber: 44,
+                            columnNumber: 23
+                        }, undefined)
+                    ]
+                }, index, true, {
                     fileName: "src/components/RestaurantMenu.js",
-                    lineNumber: 41,
+                    lineNumber: 42,
                     columnNumber: 19
                 }, undefined);
             })
         }, void 0, false, {
             fileName: "src/components/RestaurantMenu.js",
-            lineNumber: 37,
+            lineNumber: 38,
             columnNumber: 11
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/RestaurantMenu.js",
-        lineNumber: 36,
+        lineNumber: 37,
         columnNumber: 9
     }, undefined);
 };
