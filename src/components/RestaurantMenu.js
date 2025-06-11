@@ -2,21 +2,21 @@ import { useState, useEffect } from "react";
 import { fetchRestaurants } from "./utils/fetchRestaurants";
 import { useParams } from "react-router";
 import Shimmer from "./Shimmer";
+import useRestaurantMenu from "./utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
   const [menuSection, setMenuSections] = useState([]);
+  const [sectionAccordion, setSectionAccordion] = useState(null);
   const { resId } = useParams();
 
-  useEffect(() => {
-    getRestaurantMenu();
-  }, []);
-          const getRestaurantMenu = async () => {
-            const restaurantMenu = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6110886&lng=77.2345184&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
-            const json = await restaurantMenu.json();
-            console.log(json);
+      
+  const resMenu = useRestaurantMenu(resId);
 
-                  {/** აქ მაქვს ის ობიექტი, რომელიც შეიცავს groupedCard-ს */}
-            const findMenu = json?.data?.cards.find(card => card?.groupedCard);
+  useEffect(() => {
+
+    if(resMenu){
+                {/** აქ მაქვს ის ობიექტი, რომელიც შეიცავს groupedCard-ს */}
+            const findMenu = resMenu?.data?.cards.find(card => card?.groupedCard);
             console.log(findMenu);
 
                  {/**აქ მაქვს მთლიანი card ობიექტი რომელიც შეიიცავს itemCards */}
@@ -28,12 +28,15 @@ const RestaurantMenu = () => {
               console.log(section);
 
               setMenuSections(section);
+    }
 
-          }
+  }, [resMenu]);
 
 
   if (!menuSection) return <Shimmer />;
-
+              function handleClick() {
+                  console.log("CLICKED");
+              }
       return(
         <div>
           <div className="menu text-center">
@@ -41,7 +44,11 @@ const RestaurantMenu = () => {
                 const {title, itemCards} = section.card.card;
                 return(
                   <div key={index}>
-                      <h1 className="text-xl font-bold bg-slate-100 mt-1 p-2">{title} ({itemCards.length})</h1>
+                      <h1 className="text-xl font-bold bg-slate-100 mt-1 p-2 cursor-pointer" 
+                      onClick={() => handleClick()}
+                      >{title} ({itemCards.length})
+                        
+                      </h1>
                       <ul>
                         {
                           itemCards.map((item) => {

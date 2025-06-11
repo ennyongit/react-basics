@@ -29141,31 +29141,36 @@ var _fetchRestaurants = require("./utils/fetchRestaurants");
 var _reactRouter = require("react-router");
 var _shimmer = require("./Shimmer");
 var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
+var _useRestaurantMenu = require("./utils/useRestaurantMenu");
+var _useRestaurantMenuDefault = parcelHelpers.interopDefault(_useRestaurantMenu);
 var _s = $RefreshSig$();
 const RestaurantMenu = ()=>{
     _s();
     const [menuSection, setMenuSections] = (0, _react.useState)([]);
+    const [sectionAccordion, setSectionAccordion] = (0, _react.useState)(null);
     const { resId } = (0, _reactRouter.useParams)();
+    const resMenu = (0, _useRestaurantMenuDefault.default)(resId);
     (0, _react.useEffect)(()=>{
-        getRestaurantMenu();
-    }, []);
-    const getRestaurantMenu = async ()=>{
-        const restaurantMenu = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6110886&lng=77.2345184&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
-        const json = await restaurantMenu.json();
-        console.log(json);
-        const findMenu = json?.data?.cards.find((card)=>card?.groupedCard);
-        console.log(findMenu);
-        const groupedCards = findMenu?.groupedCard.cardGroupMap?.REGULAR?.cards;
-        console.log(groupedCards);
-        const section = groupedCards.filter((card)=>card?.card?.card?.itemCards) || [];
-        console.log(section);
-        setMenuSections(section);
-    };
+        if (resMenu) {
+            const findMenu = resMenu?.data?.cards.find((card)=>card?.groupedCard);
+            console.log(findMenu);
+            const groupedCards = findMenu?.groupedCard.cardGroupMap?.REGULAR?.cards;
+            console.log(groupedCards);
+            const section = groupedCards.filter((card)=>card?.card?.card?.itemCards) || [];
+            console.log(section);
+            setMenuSections(section);
+        }
+    }, [
+        resMenu
+    ]);
     if (!menuSection) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/RestaurantMenu.js",
-        lineNumber: 35,
+        lineNumber: 36,
         columnNumber: 28
     }, undefined);
+    function handleClick() {
+        console.log("CLICKED");
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "menu text-center",
@@ -29174,7 +29179,8 @@ const RestaurantMenu = ()=>{
                 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                            className: "text-xl font-bold bg-slate-100 mt-1 p-2",
+                            className: "text-xl font-bold bg-slate-100 mt-1 p-2 cursor-pointer",
+                            onClick: ()=>handleClick(),
                             children: [
                                 title,
                                 " (",
@@ -29183,7 +29189,7 @@ const RestaurantMenu = ()=>{
                             ]
                         }, void 0, true, {
                             fileName: "src/components/RestaurantMenu.js",
-                            lineNumber: 44,
+                            lineNumber: 47,
                             columnNumber: 23
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -29196,7 +29202,7 @@ const RestaurantMenu = ()=>{
                                             children: name
                                         }, void 0, false, {
                                             fileName: "src/components/RestaurantMenu.js",
-                                            lineNumber: 51,
+                                            lineNumber: 58,
                                             columnNumber: 33
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29204,7 +29210,7 @@ const RestaurantMenu = ()=>{
                                             children: price
                                         }, void 0, false, {
                                             fileName: "src/components/RestaurantMenu.js",
-                                            lineNumber: 52,
+                                            lineNumber: 59,
                                             columnNumber: 33
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -29212,42 +29218,43 @@ const RestaurantMenu = ()=>{
                                             src: `https://media-assets.swiggy.com/swiggy/image/upload/${imageId}`
                                         }, void 0, false, {
                                             fileName: "src/components/RestaurantMenu.js",
-                                            lineNumber: 53,
+                                            lineNumber: 60,
                                             columnNumber: 33
                                         }, undefined)
                                     ]
                                 }, item.card.info.id, true, {
                                     fileName: "src/components/RestaurantMenu.js",
-                                    lineNumber: 50,
+                                    lineNumber: 57,
                                     columnNumber: 29
                                 }, undefined);
                             })
                         }, void 0, false, {
                             fileName: "src/components/RestaurantMenu.js",
-                            lineNumber: 45,
+                            lineNumber: 52,
                             columnNumber: 23
                         }, undefined)
                     ]
                 }, index, true, {
                     fileName: "src/components/RestaurantMenu.js",
-                    lineNumber: 43,
+                    lineNumber: 46,
                     columnNumber: 19
                 }, undefined);
             })
         }, void 0, false, {
             fileName: "src/components/RestaurantMenu.js",
-            lineNumber: 39,
+            lineNumber: 42,
             columnNumber: 11
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/RestaurantMenu.js",
-        lineNumber: 38,
+        lineNumber: 41,
         columnNumber: 9
     }, undefined);
 };
-_s(RestaurantMenu, "LbU2/2lIZ4uZHMfolDKQ28X1nl8=", false, function() {
+_s(RestaurantMenu, "/WeEgHALIjxhJFzDQ90Yl6EC2+M=", false, function() {
     return [
-        (0, _reactRouter.useParams)
+        (0, _reactRouter.useParams),
+        (0, _useRestaurantMenuDefault.default)
     ];
 });
 _c = RestaurantMenu;
@@ -29260,6 +29267,39 @@ $RefreshReg$(_c, "RestaurantMenu");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./utils/fetchRestaurants":"a0eT2","react-router":"2jawN","./Shimmer":"fSZbx","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"giGSC":[function() {},{}]},["aj62f","4ZGjQ"], "4ZGjQ", "parcelRequiredadd", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./utils/fetchRestaurants":"a0eT2","react-router":"2jawN","./Shimmer":"fSZbx","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./utils/useRestaurantMenu":"5JZDi"}],"5JZDi":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$19ee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$19ee.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$19ee.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _s = $RefreshSig$();
+const useRestaurantMenu = (resId)=>{
+    _s();
+    const [resMenu, setResMenu] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        getRestaurantMenu();
+    }, []);
+    const getRestaurantMenu = async ()=>{
+        const restaurantMenu = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6110886&lng=77.2345184&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
+        const json = await restaurantMenu.json();
+        setResMenu(json);
+    };
+    return resMenu;
+};
+_s(useRestaurantMenu, "iUKY61PN2wbT2+Ks4vXJ21G2kGQ=");
+exports.default = useRestaurantMenu;
+
+  $parcel$ReactRefreshHelpers$19ee.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"giGSC":[function() {},{}]},["aj62f","4ZGjQ"], "4ZGjQ", "parcelRequiredadd", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=react-basics.f72d0d54.js.map
