@@ -29138,7 +29138,7 @@ var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _s = $RefreshSig$();
 const RestaurantMenu = ()=>{
     _s();
-    const [menuSections, setMenuSections] = (0, _react.useState)("");
+    const [menuSections, setMenuSections] = (0, _react.useState)([]);
     const { resId } = (0, _reactRouter.useParams)();
     (0, _react.useEffect)(()=>{
         getRestaurantMenu();
@@ -29183,7 +29183,7 @@ const RestaurantMenu = ()=>{
                             children: itemCards.map((item)=>{
                                 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                     children: item.card.info.name
-                                }, item.id, false, {
+                                }, item.card.info.id, false, {
                                     fileName: "src/components/RestaurantMenu.js",
                                     lineNumber: 48,
                                     columnNumber: 29
@@ -29212,7 +29212,7 @@ const RestaurantMenu = ()=>{
         columnNumber: 9
     }, undefined);
 };
-_s(RestaurantMenu, "94zkp0OwTvgTEPDfJPLVbBGXPFk=", false, function() {
+_s(RestaurantMenu, "djw5+idSTxpRvqhKtIIndnhj3yA=", false, function() {
     return [
         (0, _reactRouter.useParams)
     ];

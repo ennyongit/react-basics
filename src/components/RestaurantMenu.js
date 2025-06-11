@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import Shimmer from "./Shimmer";
 
 const RestaurantMenu = () => {
-  const [menuSections, setMenuSections] = useState("");
+  const [menuSections, setMenuSections] = useState([]);
   const { resId } = useParams();
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const RestaurantMenu = () => {
                         {
                           itemCards.map((item) => {
                             return(
-                            <li key={item.id}>{item.card.info.name}</li>
+                            <li key={item.card.info.id}>{item.card.info.name}</li>
                             )
                           })
                         }
