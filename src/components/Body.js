@@ -1,6 +1,6 @@
 import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
-import { useState, useEffect } from "react";
-import { fetchRestaurants } from './utils/fetchRestaurants';
+import { useState, useEffect, use } from "react";
+import useRestaurants from "./utils/useRestaurants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "./utils/useOnlineStatus";
@@ -13,18 +13,20 @@ const Body = () => {
     const onlineStatus = useOnlineStatus();
     if(onlineStatus === false) return <h1 className="onlineStatus">Please Check Your Connection!</h1>;
 
-        useEffect(() => {
-            getRestaurants();
-        },[])
-            const getRestaurants = async () => {
-                const restaurants = await fetchRestaurants();
-                setListOfRestaurant(restaurants);
-                setFilteredRestaurant(restaurants);
-                console.log(restaurants);
-            }
+
+    const restaurantsApi = useRestaurants();
+
+    useEffect(() => {
+            const cardsArray = restaurantsApi?.data?.cards;
+            if(!cardsArray) return;
+            const card = cardsArray.find((res) => res.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            const restaurants = card?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            setListOfRestaurant(restaurants);
+            setFilteredRestaurant(restaurants);
             
-    // return new component which has label inside it
-    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+    },[restaurantsApi])
+
+    console.log(listOfRestaurant);
     
     if (listOfRestaurant.length === 0) return <Shimmer />;
     return (
@@ -59,13 +61,13 @@ const Body = () => {
             <div className="res-container mt-10 flex flex-wrap justify-between">
                 {
                     !filteredRestaurant?.length ? <Shimmer /> :(
-                    filteredRestaurant.map((restaurant) =>(
+                    filteredRestaurant.map((restaurants) =>(
                     <Link 
-                     key={restaurant.info.id}
-                     to={"/restaurants/" + restaurant.info.id}
+                     key={restaurants.info.id}
+                     to={"/restaurants/" + restaurants.info.id}
                      >
                         {
-                             <RestaurantCard resData={restaurant} key={restaurant.info.id}/>
+                             <RestaurantCard resData={restaurants} key={restaurants.info.id}/>
                         }
                     
                     </Link>

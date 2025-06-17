@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
-import { fetchRestaurants } from "./utils/fetchRestaurants";
+import useRestaurants from "./utils/useRestaurants";
 import { useParams } from "react-router";
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "./utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
   const [menuSection, setMenuSections] = useState([]);
-  const [sectionAccordion, setSectionAccordion] = useState(null);
   const { resId } = useParams();
 
-      
   const resMenu = useRestaurantMenu(resId);
 
   useEffect(() => {
@@ -52,9 +50,9 @@ const RestaurantMenu = () => {
                       <ul>
                         {
                           itemCards.map((item) => {
-                              const {name, price, imageId, description} = item.card.info;
+                              const {name, price, imageId, id, description} = item.card.info;
                             return(
-                            <li key={item.card.info.id}>
+                            <li key={id}>
                                 <div className="">{name}</div>
                                 <div className="">{price}</div>
                                 <img className="w-60 h-60" src={`https://media-assets.swiggy.com/swiggy/image/upload/${imageId}`}/>
