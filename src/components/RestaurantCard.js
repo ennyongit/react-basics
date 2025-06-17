@@ -14,7 +14,7 @@ const RestaurantCard = ({resData}) => {
 }
 
 export const withPromotedLabel = (RestaurantCard) => {
-    return (props) => {
+    return (props) => { /**new component returned with promoted label on top of it */
         return (
             <div>
                 <label className="absolute bg-black text-white rounded-md p-1">Promoted</label>

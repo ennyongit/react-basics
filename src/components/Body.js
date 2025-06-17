@@ -10,6 +10,8 @@ const Body = () => {
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [inputText, setInputText] = useState("");
 
+    const RestaurantPromoted = withPromotedLabel(RestaurantCard);
+
     const onlineStatus = useOnlineStatus();
     if(onlineStatus === false) return <h1 className="onlineStatus">Please Check Your Connection!</h1>;
 
@@ -66,9 +68,14 @@ const Body = () => {
                      key={restaurants.info.id}
                      to={"/restaurants/" + restaurants.info.id}
                      >
-                        {
-                             <RestaurantCard resData={restaurants} key={restaurants.info.id}/>
-                        }
+                        { restaurants.info.promoted ? 
+                        (
+                            <RestaurantPromoted resData={restaurants} key={restaurants.info.id}/>
+                        ) 
+                        :
+                        ( 
+                            <RestaurantCard resData={restaurants} key={restaurants.info.id}/>
+                        )}
                     
                     </Link>
                 ))
