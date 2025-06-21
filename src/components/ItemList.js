@@ -10,7 +10,7 @@ const ItemList = ({items}) => {
                 return(
                     <div
                         key={id}
-                        className="p-2 m-2 border-b-2"
+                        className="pt-2 pb-2 pl-5 border-b-2"
                         >
                         <div className="flex justify-between flex-wrap">
                         <div className="w-2/3">
@@ -20,7 +20,7 @@ const ItemList = ({items}) => {
                         </div>
                         <div className="relative">
                              <img 
-                             className="w-40 h-auto float-right mt-2"
+                             className="w-52 h-auto float-right mt-2"
                              src={CDN_URL + imageId}/> 
                              <button className="p-1 shadow-lg absolute rounded-lg my-3 mx-1 bg-black text-white">Add +</button>
                         </div>

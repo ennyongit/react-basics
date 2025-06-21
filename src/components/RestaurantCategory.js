@@ -1,16 +1,24 @@
 import ItemList from "./ItemList";
+import { useState } from "react";
 
 const RestaurantCategory = ({data}) => {
+    const [showItems, setShowItems] = useState(false);
     const {title} = data;
     console.log(data);
+
+    const handleClick = () => {
+       setShowItems(!showItems);
+    }
+
     return(
         <div className="w-2/3 mt-5">
         <div>
-            <div>
-              <h1 className="text-xl font-bold mt-1 p-5 cursor-pointer bg-gray-50">{title} ({data.itemCards.length})</h1>
+            <div className="bg-gray-50 cursor-pointer" onClick={handleClick}
+            >
+              <h1 className="text-xl font-bold p-5">{title} ({data.itemCards.length})</h1>
             </div>
             <div>
-              <ItemList items={data.itemCards}/>
+              {showItems && <ItemList items={data.itemCards}/>}
         </div>
         </div>
         </div>

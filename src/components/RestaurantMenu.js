@@ -34,7 +34,7 @@ const RestaurantMenu = () => {
        <div className="flex flex-col items-center">
            {/**categoriws accordion */}
           {itemSection.map((category) => 
-          <RestaurantCategory data={category?.card?.card} key={category?.card?.card?.id}/>
+          <RestaurantCategory data={category?.card?.card} key={category?.card?.card?.title}/>
           )}
        </div>
 
