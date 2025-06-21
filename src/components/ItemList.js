@@ -18,10 +18,11 @@ const ItemList = ({items}) => {
                             <span>{price ? price : defaultPrice / 100 }</span>
                             <p className="text-xs">{description}</p>
                         </div>
-                        <div>
+                        <div className="relative">
                              <img 
                              className="w-40 h-auto float-right mt-2"
-                             src={CDN_URL + imageId}/>
+                             src={CDN_URL + imageId}/> 
+                             <button className="p-1 shadow-lg absolute rounded-lg my-3 mx-1 bg-black text-white">Add +</button>
                         </div>
                         </div>
                     </div>

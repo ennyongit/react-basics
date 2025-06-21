@@ -29395,15 +29395,26 @@ const ItemList = ({ items })=>{
                             columnNumber: 25
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "w-40 h-auto float-right mt-2",
-                                src: (0, _constants.CDN_URL) + imageId
-                            }, void 0, false, {
-                                fileName: "src/components/ItemList.js",
-                                lineNumber: 22,
-                                columnNumber: 30
-                            }, undefined)
-                        }, void 0, false, {
+                            className: "relative",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "w-40 h-auto float-right mt-2",
+                                    src: (0, _constants.CDN_URL) + imageId
+                                }, void 0, false, {
+                                    fileName: "src/components/ItemList.js",
+                                    lineNumber: 22,
+                                    columnNumber: 30
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    className: "p-1 shadow-lg absolute rounded-lg my-3 mx-1 bg-black text-white",
+                                    children: "Add +"
+                                }, void 0, false, {
+                                    fileName: "src/components/ItemList.js",
+                                    lineNumber: 25,
+                                    columnNumber: 30
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
                             fileName: "src/components/ItemList.js",
                             lineNumber: 21,
                             columnNumber: 25
