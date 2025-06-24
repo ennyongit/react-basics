@@ -7,6 +7,7 @@ import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const [itemSection, setItemSection] = useState([]);
+  const [showIndex, setShowIndex] = useState(null);
   const { resId } = useParams();
 
   const resMenu = useRestaurantMenu(resId);
@@ -33,8 +34,13 @@ const RestaurantMenu = () => {
       return(
        <div className="flex flex-col items-center">
            {/**categoriws accordion */}
-          {itemSection.map((category) => 
-          <RestaurantCategory data={category?.card?.card} key={category?.card?.card?.title}/>
+          {itemSection.map((category, index) => 
+          <RestaurantCategory 
+          key={category?.card?.card?.title}
+          data={category?.card?.card} 
+          showItems={index === showIndex ? true : false}
+          setShowIndex={() => setShowIndex(showIndex === index ? null : index)}
+          />
           )}
        </div>
 

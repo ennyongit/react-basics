@@ -29184,6 +29184,7 @@ var _s = $RefreshSig$();
 const RestaurantMenu = ()=>{
     _s();
     const [itemSection, setItemSection] = (0, _react.useState)([]);
+    const [showIndex, setShowIndex] = (0, _react.useState)(null);
     const { resId } = (0, _reactRouter.useParams)();
     const resMenu = (0, _useRestaurantMenuDefault.default)(resId);
     (0, _react.useEffect)(()=>{
@@ -29199,25 +29200,27 @@ const RestaurantMenu = ()=>{
     ]);
     if (!itemSection) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/RestaurantMenu.js",
-        lineNumber: 32,
+        lineNumber: 33,
         columnNumber: 28
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "flex flex-col items-center",
-        children: itemSection.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCategoryDefault.default), {
-                data: category?.card?.card
+        children: itemSection.map((category, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCategoryDefault.default), {
+                data: category?.card?.card,
+                showItems: index === showIndex ? true : false,
+                setShowIndex: ()=>setShowIndex(showIndex === index ? null : index)
             }, category?.card?.card?.title, false, {
                 fileName: "src/components/RestaurantMenu.js",
-                lineNumber: 37,
+                lineNumber: 38,
                 columnNumber: 11
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/RestaurantMenu.js",
-        lineNumber: 34,
+        lineNumber: 35,
         columnNumber: 8
     }, undefined);
 };
-_s(RestaurantMenu, "5R/6N3rxAKX2dkGH4HNoBvMqkj0=", false, function() {
+_s(RestaurantMenu, "1rSgpxQLd7YkHHVdgxc5Z0jxpcY=", false, function() {
     return [
         (0, _reactRouter.useParams),
         (0, _useRestaurantMenuDefault.default)
@@ -29280,14 +29283,11 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _itemList = require("./ItemList");
 var _itemListDefault = parcelHelpers.interopDefault(_itemList);
 var _react = require("react");
-var _s = $RefreshSig$();
-const RestaurantCategory = ({ data })=>{
-    _s();
-    const [showItems, setShowItems] = (0, _react.useState)(false);
+const RestaurantCategory = ({ data, showItems, setShowIndex })=>{
     const { title } = data;
     console.log(data);
     const handleClick = ()=>{
-        setShowItems(!showItems);
+        setShowIndex();
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "w-2/3 mt-5",
@@ -29306,12 +29306,12 @@ const RestaurantCategory = ({ data })=>{
                         ]
                     }, void 0, true, {
                         fileName: "src/components/RestaurantCategory.js",
-                        lineNumber: 18,
+                        lineNumber: 17,
                         columnNumber: 15
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/RestaurantCategory.js",
-                    lineNumber: 16,
+                    lineNumber: 15,
                     columnNumber: 13
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29324,22 +29324,21 @@ const RestaurantCategory = ({ data })=>{
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/RestaurantCategory.js",
-                    lineNumber: 20,
+                    lineNumber: 19,
                     columnNumber: 13
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/RestaurantCategory.js",
-            lineNumber: 15,
+            lineNumber: 14,
             columnNumber: 9
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/RestaurantCategory.js",
-        lineNumber: 14,
+        lineNumber: 13,
         columnNumber: 9
     }, undefined);
 };
-_s(RestaurantCategory, "nufYacSoU4bbrMzdqcBBtNUNFgY=");
 _c = RestaurantCategory;
 exports.default = RestaurantCategory;
 var _c;
