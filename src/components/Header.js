@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "./utils/useOnlineStatus";
+import { useSelector } from "react-redux";
+
+
 const Header = () => {
 
     const [btnName, setBtnName] = useState("Login");
     const onlineStatus = useOnlineStatus();
+
+    //portion of a store subscribing to the store using a selector
+    const cartItems = useSelector((store) => store.cart.items);
+    console.log(cartItems);
+
     return(
         <div className="header flex justify-between items-center flex-wrap border border-gray-300">
             <div className="logo-container w-50">
@@ -22,7 +30,7 @@ const Header = () => {
                     <li>
                          <Link className="text-xl"  to="/contact">Contact us</Link>
                     </li>
-                    <li className="text-xl">Cart</li>
+                    <li className="text-xl">Cart - {cartItems.length}</li>
                 <button onClick={() => {
                         btnName === "Login" 
                         ? setBtnName("Logout") 

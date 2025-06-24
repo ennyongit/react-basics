@@ -8,13 +8,17 @@ import Contact from './src/components/Contact';
 import Error from './src/components/Error';
 import RestaurantMenu from './src/components/RestaurantMenu';
 import './index.css'
+import { Provider } from 'react-redux';
+import appStore from './src/components/utils/appStore';
 
 const AppLayout = () => {
     return(
+    <Provider store={appStore}>
         <div className='app'>
            <Header/>
            <Outlet/>
         </div>
+    </Provider>
     )
 }
 
