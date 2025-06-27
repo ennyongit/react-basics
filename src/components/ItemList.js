@@ -24,10 +24,10 @@ const ItemList = ({items}) => {
                             return(
                                 <div
                                     key={id}
-                                    className="pt-2 pb-2 pl-5 border-b-2"
+                                    className="pt-1 pb-1 pl-5 border-b-2"
                                     >
                                     <div className="flex justify-between flex-wrap">
-                                    <div className="w-2/3">
+                                    <div className="w-2/3 flex flex-col justify-center">
                                         <h2 className="text-black font-bold">{name}</h2>
                                         <span>{price ? price : defaultPrice / 100 }</span>
                                         <p className="text-xs">{description}</p>
