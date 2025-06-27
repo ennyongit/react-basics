@@ -259,6 +259,10 @@ img, video {
   float: right;
 }
 
+.m-6 {
+  margin: 1.5rem;
+}
+
 .mx-1 {
   margin-left: .25rem;
   margin-right: .25rem;
@@ -321,6 +325,22 @@ img, video {
   width: 100%;
 }
 
+.w-4 {
+  width: 1rem;
+}
+
+.w-2\/6 {
+  width: 33.3333%;
+}
+
+.w-3\/4 {
+  width: 75%;
+}
+
+.w-6\/12 {
+  width: 50%;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -335,6 +355,10 @@ img, video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
@@ -432,6 +456,10 @@ img, video {
 
 .text-center {
   text-align: center;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .text-lg {

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const RestaurantCategory = ({data, showItems, setShowIndex}) => {
     const {title} = data;
-    console.log(data);
+    // console.log(data);
 
     const handleClick = () => {
        setShowIndex();

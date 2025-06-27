@@ -10,6 +10,7 @@ import RestaurantMenu from './src/components/RestaurantMenu';
 import './index.css'
 import { Provider } from 'react-redux';
 import appStore from './src/components/utils/appStore';
+import Cart from './src/components/Cart';
 
 const AppLayout = () => {
     return(
@@ -42,6 +43,10 @@ const AppLayout = () => {
             { // url parameter: resId
                 path:"/restaurants/:resId",
                 element: <RestaurantMenu/>
+            },
+            {
+                path: "/cart",
+                element: <Cart/>
             }
    ],
         errorElement: <Error/>

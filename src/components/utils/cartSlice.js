@@ -7,6 +7,7 @@ const cartSlice = createSlice({
     },
     reducers: {
         // mutating the state heree
+        // action playload - ის მოქმედების მნიშვ რომელიც გვინდა რომ შევასრულოთ
         addItems: (state, action) => {
             state.items.push(action.payload)
         },
@@ -18,6 +19,8 @@ const cartSlice = createSlice({
         }
     }
 });
+
+console.log(cartSlice);
 
 export const {addItems, removeItem, clearCart} = cartSlice.actions;
 

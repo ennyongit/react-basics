@@ -697,6 +697,8 @@ var _indexCss = require("./index.css");
 var _reactRedux = require("react-redux");
 var _appStore = require("./src/components/utils/appStore");
 var _appStoreDefault = parcelHelpers.interopDefault(_appStore);
+var _cart = require("./src/components/Cart");
+var _cartDefault = parcelHelpers.interopDefault(_cart);
 const AppLayout = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), {
         store: (0, _appStoreDefault.default),
@@ -705,23 +707,23 @@ const AppLayout = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 18,
+                    lineNumber: 19,
                     columnNumber: 12
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Outlet), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 19,
+                    lineNumber: 20,
                     columnNumber: 12
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "app.js",
-            lineNumber: 17,
+            lineNumber: 18,
             columnNumber: 9
         }, undefined)
     }, void 0, false, {
         fileName: "app.js",
-        lineNumber: 16,
+        lineNumber: 17,
         columnNumber: 5
     }, undefined);
 };
@@ -731,7 +733,7 @@ const appRouter = (0, _reactRouter.createBrowserRouter)([
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
             fileName: "app.js",
-            lineNumber: 28,
+            lineNumber: 29,
             columnNumber: 18
         }, undefined),
         children: [
@@ -739,7 +741,7 @@ const appRouter = (0, _reactRouter.createBrowserRouter)([
                 path: "/",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 32,
+                    lineNumber: 33,
                     columnNumber: 26
                 }, undefined)
             },
@@ -747,7 +749,7 @@ const appRouter = (0, _reactRouter.createBrowserRouter)([
                 path: "/about",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 36,
+                    lineNumber: 37,
                     columnNumber: 26
                 }, undefined)
             },
@@ -755,7 +757,7 @@ const appRouter = (0, _reactRouter.createBrowserRouter)([
                 path: "/contact",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contactDefault.default), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 40,
+                    lineNumber: 41,
                     columnNumber: 26
                 }, undefined)
             },
@@ -763,14 +765,22 @@ const appRouter = (0, _reactRouter.createBrowserRouter)([
                 path: "/restaurants/:resId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantMenuDefault.default), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 44,
+                    lineNumber: 45,
+                    columnNumber: 26
+                }, undefined)
+            },
+            {
+                path: "/cart",
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartDefault.default), {}, void 0, false, {
+                    fileName: "app.js",
+                    lineNumber: 49,
                     columnNumber: 26
                 }, undefined)
             }
         ],
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorDefault.default), {}, void 0, false, {
             fileName: "app.js",
-            lineNumber: 47,
+            lineNumber: 52,
             columnNumber: 23
         }, undefined)
     }
@@ -780,7 +790,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.RouterProv
     router: appRouter
 }, void 0, false, {
     fileName: "app.js",
-    lineNumber: 52,
+    lineNumber: 57,
     columnNumber: 13
 }, undefined)); // const parent = React.createElement("div", {id: "parent"}, [
  //     React.createElement("div", {id:"child"}, [
@@ -800,7 +810,7 @@ $RefreshReg$(_c, "AppLayout");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","./src/components/Header":"3PJ6N","./src/components/Body":"loQlg","react-router":"2jawN","./src/components/About":"bv2mH","./src/components/Contact":"asQvq","./src/components/Error":"8NIKV","./src/components/RestaurantMenu":"b9jHD","./index.css":"giGSC","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-redux":"hbNxT","./src/components/utils/appStore":"5mozm"}],"dVPUn":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","./src/components/Header":"3PJ6N","./src/components/Body":"loQlg","react-router":"2jawN","./src/components/About":"bv2mH","./src/components/Contact":"asQvq","./src/components/Error":"8NIKV","./src/components/RestaurantMenu":"b9jHD","./index.css":"giGSC","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-redux":"hbNxT","./src/components/utils/appStore":"5mozm","./src/components/Cart":"h9Vh3"}],"dVPUn":[function(require,module,exports,__globalThis) {
 'use strict';
 module.exports = require("ee51401569654d91");
 
@@ -16304,12 +16314,20 @@ const Header = ()=>{
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "text-xl",
-                            children: [
-                                "Cart - ",
-                                cartItems.length
-                            ]
-                        }, void 0, true, {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Link), {
+                                className: "text-xl",
+                                to: "/cart",
+                                children: [
+                                    "Cart (",
+                                    cartItems.length,
+                                    ")"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Header.js",
+                                lineNumber: 34,
+                                columnNumber: 25
+                            }, undefined)
+                        }, void 0, false, {
                             fileName: "src/components/Header.js",
                             lineNumber: 33,
                             columnNumber: 21
@@ -16322,7 +16340,7 @@ const Header = ()=>{
                             children: btnName
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 34,
+                            lineNumber: 38,
                             columnNumber: 17
                         }, undefined)
                     ]
@@ -30306,7 +30324,7 @@ var _itemListDefault = parcelHelpers.interopDefault(_itemList);
 var _react = require("react");
 const RestaurantCategory = ({ data, showItems, setShowIndex })=>{
     const { title } = data;
-    console.log(data);
+    // console.log(data);
     const handleClick = ()=>{
         setShowIndex();
     };
@@ -30387,15 +30405,18 @@ var _cartSlice = require("./utils/cartSlice");
 var _s = $RefreshSig$();
 const ItemList = ({ items })=>{
     _s();
-    // console.log(items);
+    console.log(items);
     const dispatch = (0, _reactRedux.useDispatch)();
-    const handleAddItem = ()=>{
+    const handleAddItem = (item)=>{
         //dispatch an action (add item)
-        dispatch((0, _cartSlice.addItems)("pizza"));
+        // send a message - add pizza in cart
+        dispatch((0, _cartSlice.addItems)(item));
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: items.map((item)=>{
-            const { name, price, defaultPrice, description, imageId, id } = item?.card?.info;
+            const info = item?.card?.info;
+            if (!info) return null;
+            const { name, price, defaultPrice, description, imageId, id } = info;
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "pt-2 pb-2 pl-5 border-b-2",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -30409,29 +30430,29 @@ const ItemList = ({ items })=>{
                                     children: name
                                 }, void 0, false, {
                                     fileName: "src/components/ItemList.js",
-                                    lineNumber: 27,
-                                    columnNumber: 29
+                                    lineNumber: 31,
+                                    columnNumber: 41
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                     children: price ? price : defaultPrice / 100
                                 }, void 0, false, {
                                     fileName: "src/components/ItemList.js",
-                                    lineNumber: 28,
-                                    columnNumber: 29
+                                    lineNumber: 32,
+                                    columnNumber: 41
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                     className: "text-xs",
                                     children: description
                                 }, void 0, false, {
                                     fileName: "src/components/ItemList.js",
-                                    lineNumber: 29,
-                                    columnNumber: 29
+                                    lineNumber: 33,
+                                    columnNumber: 41
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/ItemList.js",
-                            lineNumber: 26,
-                            columnNumber: 25
+                            lineNumber: 30,
+                            columnNumber: 37
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "relative",
@@ -30441,39 +30462,39 @@ const ItemList = ({ items })=>{
                                     src: (0, _constants.CDN_URL) + imageId
                                 }, void 0, false, {
                                     fileName: "src/components/ItemList.js",
-                                    lineNumber: 32,
-                                    columnNumber: 30
+                                    lineNumber: 36,
+                                    columnNumber: 41
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    onClick: handleAddItem,
                                     className: "p-1 shadow-lg absolute rounded-lg my-3 mx-1 bg-black text-white",
+                                    onClick: ()=>handleAddItem(item),
                                     children: "Add +"
                                 }, void 0, false, {
                                     fileName: "src/components/ItemList.js",
-                                    lineNumber: 35,
-                                    columnNumber: 30
+                                    lineNumber: 39,
+                                    columnNumber: 41
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/ItemList.js",
-                            lineNumber: 31,
-                            columnNumber: 25
+                            lineNumber: 35,
+                            columnNumber: 37
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/ItemList.js",
-                    lineNumber: 25,
-                    columnNumber: 25
+                    lineNumber: 29,
+                    columnNumber: 37
                 }, undefined)
             }, id, false, {
                 fileName: "src/components/ItemList.js",
-                lineNumber: 21,
-                columnNumber: 21
+                lineNumber: 25,
+                columnNumber: 33
             }, undefined);
         })
     }, void 0, false, {
         fileName: "src/components/ItemList.js",
-        lineNumber: 17,
+        lineNumber: 18,
         columnNumber: 9
     }, undefined);
 };
@@ -30506,6 +30527,7 @@ const cartSlice = (0, _toolkit.createSlice)({
     },
     reducers: {
         // mutating the state heree
+        // action playload - ის მოქმედების მნიშვ რომელიც გვინდა რომ შევასრულოთ
         addItems: (state, action)=>{
             state.items.push(action.payload);
         },
@@ -30517,6 +30539,7 @@ const cartSlice = (0, _toolkit.createSlice)({
         }
     }
 });
+console.log(cartSlice);
 const { addItems, removeItem, clearCart } = cartSlice.actions;
 exports.default = cartSlice.reducer;
 
@@ -34488,14 +34511,70 @@ parcelHelpers.defineInteropFlag(exports);
 var _toolkit = require("@reduxjs/toolkit");
 var _cartSlice = require("./cartSlice");
 var _cartSliceDefault = parcelHelpers.interopDefault(_cartSlice);
+// კონტეინერი რომელშიც ივნახავთ ყველა slice-ს
 const appStore = (0, _toolkit.configureStore)({
-    // app reducer
     reducer: {
         cart: (0, _cartSliceDefault.default)
     }
 });
+console.log(appStore);
 exports.default = appStore;
 
-},{"@reduxjs/toolkit":"fKS5f","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./cartSlice":"24VqT"}]},["aj62f","4ZGjQ"], "4ZGjQ", "parcelRequiredadd", {}, null, null, "http://localhost:1234")
+},{"@reduxjs/toolkit":"fKS5f","./cartSlice":"24VqT","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"h9Vh3":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$16fb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$16fb.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$16fb.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _reactRedux = require("react-redux");
+var _itemList = require("./ItemList");
+var _itemListDefault = parcelHelpers.interopDefault(_itemList);
+var _s = $RefreshSig$();
+const Cart = ()=>{
+    _s();
+    const cartItems = (0, _reactRedux.useSelector)((store)=>store.cart.items);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "flex justify-center mt-5",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "w-6/12",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _itemListDefault.default), {
+                items: cartItems
+            }, void 0, false, {
+                fileName: "src/components/Cart.js",
+                lineNumber: 11,
+                columnNumber: 9
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/components/Cart.js",
+            lineNumber: 10,
+            columnNumber: 5
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Cart.js",
+        lineNumber: 9,
+        columnNumber: 9
+    }, undefined);
+};
+_s(Cart, "sOGYiwJY+kD+ABxufRt7JbvggIE=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
+_c = Cart;
+exports.default = Cart;
+var _c;
+$RefreshReg$(_c, "Cart");
+
+  $parcel$ReactRefreshHelpers$16fb.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react-redux":"hbNxT","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./ItemList":"jI120"}]},["aj62f","4ZGjQ"], "4ZGjQ", "parcelRequiredadd", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=react-basics.f72d0d54.js.map
