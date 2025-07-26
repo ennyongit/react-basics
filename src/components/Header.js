@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState , useContext} from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "./utils/useOnlineStatus";
 import { useSelector } from "react-redux";
+import UserContext from "./utils/UserContext";
 
 
 const Header = () => {
 
     const [btnName, setBtnName] = useState("Login");
     const onlineStatus = useOnlineStatus();
+
+    const {loggedInUser} = useContext(UserContext); // destructuring loggedInUser from UserContext
+    console.log(loggedInUser);
 
     //portion of a store subscribing to the store using a selector
     const cartItems = useSelector((store) => store.cart.items);
@@ -32,7 +36,7 @@ const Header = () => {
                     </li>
                     <li> 
                         <Link className="text-xl" to="/cart">
-                            Cart ({cartItems.length}) 
+                            Cart({cartItems.length})🛒  
                         </Link>
                     </li>
                 <button onClick={() => {
@@ -40,6 +44,7 @@ const Header = () => {
                         ? setBtnName("Logout") 
                         : setBtnName("Login");
                 }} className="login text-xl">{btnName}</button>
+                <li className="text-xl">{loggedInUser}</li>
                 </ul>
             </div>
         </div>

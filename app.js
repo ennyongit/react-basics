@@ -11,15 +11,33 @@ import './index.css'
 import { Provider } from 'react-redux';
 import appStore from './src/components/utils/appStore';
 import Cart from './src/components/Cart';
+import UserContext from './src/components/utils/UserContext';
+import { useState, useEffect } from 'react';
 
 const AppLayout = () => {
+
+    const [userName, setUserName] = useState();
+
+    // Authentication 
+
+    useEffect(() => {
+        const data = {
+            name: "Eni Bondarenko"
+        };
+        setUserName(data.name)
+    }, []);
+
     return(
-    <Provider store={appStore}>
-        <div className='app'>
-           <Header/>
-           <Outlet/>
-        </div>
-    </Provider>
+        // UserContext.Provider is used to provide data to all components in the application
+       <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+            {/* Provider is used to provide the store to all components in the application */}
+            <Provider store={appStore}>
+                <div className='app'>
+                <Header/>
+                <Outlet/>
+                </div>
+            </Provider>
+      </UserContext.Provider> 
     )
 }
 

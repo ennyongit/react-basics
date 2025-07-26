@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import userContext from "./utils/UserContext";
+
 const RestaurantCard = ({resData}) => {
     const {name, cloudinaryImageId, cuisines, avgRating} = resData.info;
+    const {loggedInUser} = useContext(userContext);
     return (
         <div className="res-card border border-transparent hover:border-gray-300 p-1 rounded-md w-64 divide-transparent">
             <img 
@@ -9,6 +13,7 @@ const RestaurantCard = ({resData}) => {
             <h3 className="title font-bold text-lg">{name}</h3>
             <h4 className="cuisine w-200">{cuisines.join(", ")}</h4>
             <h4 className="star">{avgRating} Star</h4>
+            <h4>User: {loggedInUser}</h4>
         </div>
     )
 }

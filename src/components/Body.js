@@ -4,8 +4,11 @@ import useRestaurants from "./utils/useRestaurants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "./utils/useOnlineStatus";
+import { useContext } from "react";
+import UserContext from "./utils/UserContext";
 
 const Body = () => {
+
     const [listOfRestaurant, setListOfRestaurant] = useState([]);
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [inputText, setInputText] = useState("");
@@ -29,6 +32,11 @@ const Body = () => {
     },[restaurantsApi])
 
     console.log(listOfRestaurant);
+
+    // setUserName is used to update the user name in UserContext
+    // loggedInUser is used to get the user name from UserContext
+    // useContext is used to access the UserContext
+    const {setUserName, loggedInUser} = useContext(UserContext);
     
     if (listOfRestaurant.length === 0) return <Shimmer />;
     return (
@@ -53,12 +61,17 @@ const Body = () => {
                 </div>
                 <button className="filter-btn border hover:bg-gray-50 p-2 rounded-md" onClick={() => {
                     let topRated = listOfRestaurant.filter(
-                        (res) => parseFloat(res.info.avgRating) > 4
+                        (res) => parseFloat(res.info.avgRating) > 4.4
                     );
                     setFilteredRestaurant(topRated);
                 }}>
                     Top Rated Resturant
                 </button>
+                <div className="flex items-center gap-2">
+                    <label>User Name:</label>
+                    { /* Controlled Component: input value is controlled by state */}
+                        <input className="border border-black" value={loggedInUser} onChange={(e) => setUserName(e.target.value)}/>
+                </div>
             </div>
             <div className="res-container mt-10 flex flex-wrap justify-between">
                 {

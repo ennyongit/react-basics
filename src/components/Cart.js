@@ -16,7 +16,7 @@ const Cart = () => {
                 <div>
                     <h1 className="font-bold">Cart</h1>
                 </div>
-                <div className="mt-5 w-6/12 border-2 border-gray p-2">
+                <div className="mt-5 w-6/12 border-2 border-gray pb-2">
                 {cartItems.length === 0 && <h1 className="text-center mt-2">Cart is empty Add something to the cart</h1>}
                     <ItemList items={cartItems}/>
                 </div>

@@ -7,3 +7,8 @@
 - Slice (cartSlice)
 - Dispatch (action)
 - Selector
+
+# Setting up Testing 
+- Installed React Testing Library
+- Installed Jest
+- Installed Babel dependencies 
